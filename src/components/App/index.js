@@ -5,12 +5,14 @@ import './index.css';
 import Today from '../Today';
 import PreviousList from '../PreviousList';
 import Header from '../Header';
+import Stats from '../Stats';
 
 
 function App() {
 
   const [date, setDate] = useState(Date())
   const [user, setUser] = useState("lewisgormanneale")
+  const [codewarsData, setCodewarsData] = useState({})
 
   function getDate() {
     let newDate = new Date();
@@ -22,6 +24,7 @@ function App() {
     <div className="App">
       <Header />
       <Today date={date} user={user}/>
+      <Stats date={date} user={user} codewarsData={codewarsData} setCodewarsData={setCodewarsData}/>
       <PreviousList />
     </div>
   );
