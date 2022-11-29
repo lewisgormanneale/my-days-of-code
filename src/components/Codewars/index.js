@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css"
 import { useEffect} from "react";
 
-function Codewars({ date, user, codewarsData, setCodewarsData }) {
+function Codewars({ user, codewarsData, setCodewarsData }) {
 
     useEffect(() => {
         async function getCompleted() {

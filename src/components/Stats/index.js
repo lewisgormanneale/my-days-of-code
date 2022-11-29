@@ -1,11 +1,13 @@
 import React from "react";
 import Codewars from "../Codewars";
+import GitHubCommits from "../GitHubCommits";
 import "./index.css"
 
 function Stats({date, user, codewarsData, setCodewarsData }) {
     return (
         <div className="stats">
-            <Codewars date={date} user={user} codewarsData={codewarsData} setCodewarsData={setCodewarsData} />
+            <Codewars user={user} codewarsData={codewarsData} setCodewarsData={setCodewarsData} />
+            <GitHubCommits />
         </div>
     );
 }
