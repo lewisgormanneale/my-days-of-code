@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './index.css';
 
@@ -14,11 +14,15 @@ function App() {
   const [user, setUser] = useState("lewisgormanneale")
   const [codewarsData, setCodewarsData] = useState({})
 
-  function getDate() {
-    let newDate = new Date();
-    newDate = newDate.getFullYear()+"-"+(newDate.getMonth()+1)+"-"+ newDate.getDate();
-    setDate(newDate)
-  }
+  useEffect(() => {
+    function getDate() {
+      let newDate = new Date();
+      newDate = newDate.getFullYear()+"-"+(newDate.getMonth()+1)+"-"+ newDate.getDate();
+      setDate(newDate);
+    }
+    getDate();
+  }, [])
+  
 
   return (
     <div className="app">
