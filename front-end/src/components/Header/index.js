@@ -6,7 +6,7 @@ import "./index.css"
 function Header({ user, setUser }) {
     return (
         <header className="header">
-            <div></div>
+            <p>(icon)</p>
             <h1>My Days Of Code</h1>
             <div>
                 <Login user={user} setUser={setUser} />

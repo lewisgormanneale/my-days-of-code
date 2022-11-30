@@ -1,9 +1,28 @@
 .today {
     display: flex;
     flex-direction: column;
-    width: 500px;
+    justify-content: center;
+    align-items: center;    
+    width: 80%;
+    padding: 20px;
+    margin: 20px;
+    color: var(--primary-font-color);
+    background-color: var(--secondary-background-color);
+    border: 5px solid var(--primary-background-color);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+}
+
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    background-color: var(--primary-background-color);
+    border-radius: 20px;
+    padding: 0px 20px;
 }
 
 .today > textarea {
     height: 180px;
+    width: 50%;
 }

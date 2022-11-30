@@ -25,9 +25,15 @@ function App() {
   return (
     <div className="app">
       <Header user={user} setUser={setUser}/>
-      <Today date={date} username={user.username}/>
-      <Stats date={date} user={user} codewarsData={codewarsData} setCodewarsData={setCodewarsData}/>
-      <PreviousList codewarsData={codewarsData} />
+      <main className="main">
+        <div className="info">
+          <Stats date={date} user={user} codewarsData={codewarsData} setCodewarsData={setCodewarsData}/>
+        </div>
+        <div className="days">
+          <Today date={date} username={user.username}/>
+          <PreviousList codewarsData={codewarsData} />
+        </div>
+      </main>
     </div>
   );
 };

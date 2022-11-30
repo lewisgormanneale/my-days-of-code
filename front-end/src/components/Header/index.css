@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--main-bg-color);
-    color: white;
+    text-align: center;
+    background-color: var(--primary-background-color);
+    color: var(--primary-font-color);
     width: 100%;
 }

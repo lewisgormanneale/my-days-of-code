@@ -3,12 +3,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    background-color: darkcyan;
+    width: 70%;
+    padding: 20px;
+    margin: 10px;
+    color: var(--primary-font-color);
+    background-color: var(--secondary-background-color);
+    border: 5px solid var(--primary-background-color);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
 }
 
 .day-header {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
+    background-color: var(--primary-background-color);
+    border-radius: 20px;
+    padding: 0px 20px;
 }

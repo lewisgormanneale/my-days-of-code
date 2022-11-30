@@ -5,7 +5,7 @@ function GitHubCommits() {
 
   return (
     <div className="github-commits">
-        <p>GitHub Commits All Time</p>
+        <p>GitHub Commits Made</p>
     </div>
   );
 }
