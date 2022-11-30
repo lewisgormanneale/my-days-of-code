@@ -21,7 +21,7 @@ function PreviousList() {
             <h3>Previous Days Of Code</h3>
             {days.map(function (currentDay) {
                 return (
-                    <Day createdAt={currentDay.created_at}/>
+                    <Day currentDay={currentDay}/>
                 )
             })};
         </div>
