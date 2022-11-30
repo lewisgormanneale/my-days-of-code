@@ -10,7 +10,7 @@ import Stats from '../Stats';
 function App() {
 
   const [date, setDate] = useState(Date())
-  const [user, setUser] = useState("lewisgormanneale")
+  const [user, setUser] = useState({})
   const [codewarsData, setCodewarsData] = useState({})
 
   useEffect(() => {
