@@ -3,7 +3,7 @@ import "./index.css"
 
 import Day from "../Day";
 
-function PreviousList() {
+function PreviousList({ codewarsData }) {
 
     const [days, setDays] = useState([]);
 
@@ -21,9 +21,9 @@ function PreviousList() {
             <h3>Previous Days Of Code</h3>
             {days.map(function (currentDay) {
                 return (
-                    <Day currentDay={currentDay}/>
+                    <Day currentDay={currentDay} codewarsData={codewarsData}/>
                 )
-            })};
+            })}
         </div>
     );
 }

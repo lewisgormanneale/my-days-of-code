@@ -9,7 +9,7 @@ import Stats from '../Stats';
 
 function App() {
 
-  const [date, setDate] = useState(Date())
+  const [date, setDate] = useState()
   const [user, setUser] = useState({})
   const [codewarsData, setCodewarsData] = useState({})
 
@@ -21,16 +21,15 @@ function App() {
     }
     getDate();
   }, [])
-  
 
   return (
     <div className="app">
       <Header user={user} setUser={setUser}/>
       <Today date={date} username={user.username}/>
       <Stats date={date} user={user} codewarsData={codewarsData} setCodewarsData={setCodewarsData}/>
-      <PreviousList />
+      <PreviousList codewarsData={codewarsData} />
     </div>
   );
-}
+};
 
 export default App;

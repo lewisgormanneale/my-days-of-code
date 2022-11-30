@@ -4,7 +4,8 @@ import "./index.css"
 function Today({date, username}) {
     return (
         <div className="today">
-            <p>Hello {username}! What Did You Do Today?</p>
+            <p>Hello {username}! The date is {date}</p>
+            <p>Record your day of code:</p>
             <textarea></textarea>
         </div>
     );
