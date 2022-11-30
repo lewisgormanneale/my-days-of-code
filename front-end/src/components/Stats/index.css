@@ -1,0 +1,12 @@
+.stats {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.api-stats {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

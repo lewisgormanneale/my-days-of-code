@@ -6,8 +6,11 @@ import "./index.css"
 function Stats({date, user, codewarsData, setCodewarsData }) {
     return (
         <div className="stats">
-            <Codewars codewars_username={user.codewars_username} codewarsData={codewarsData} setCodewarsData={setCodewarsData} />
-            <GitHubCommits />
+            <h3>Your Stats...</h3>
+            <div className="api-stats">
+                <Codewars codewars_username={user.codewars_username} codewarsData={codewarsData} setCodewarsData={setCodewarsData} />
+                <GitHubCommits />
+            </div>
         </div>
     );
 }

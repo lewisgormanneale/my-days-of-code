@@ -1,10 +1,11 @@
 import React from "react";
 import "./index.css"
 
-function Today({date, user}) {
+function Today({date, username}) {
     return (
         <div className="today">
-            <p>Today I did X</p>
+            <p>Hello {username}! What Did You Do Today?</p>
+            <textarea></textarea>
         </div>
     );
 }

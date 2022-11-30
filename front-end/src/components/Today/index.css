@@ -1,0 +1,9 @@
+.today {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.today > textarea {
+    height: 180px;
+}

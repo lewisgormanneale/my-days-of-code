@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="app">
       <Header user={user} setUser={setUser}/>
-      <Today date={date} user={user}/>
+      <Today date={date} username={user.username}/>
       <Stats date={date} user={user} codewarsData={codewarsData} setCodewarsData={setCodewarsData}/>
       <PreviousList />
     </div>
