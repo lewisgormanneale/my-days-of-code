@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
-import Today from '../Today/Today.js';
-import PreviousList from '../PreviousList/PreviousList.js';
-import Header from '../Header/Header.js';
-import Stats from '../Stats/Stats.js';
+import Today from './components/Today/Today.js';
+import PreviousList from './components/PreviousList/PreviousList.js';
+import Header from './components/Header/Header.js';
+import Stats from './components/Stats/Stats.js';
 
 function App() {
   const [date, setDate] = useState()

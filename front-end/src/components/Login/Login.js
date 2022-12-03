@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { supabase } from "../../lib/helper/supabaseClient"
+import { supabase } from '../../supabase.js'
 import "./Login.css"
 
 function Login({ user, setUser }) {

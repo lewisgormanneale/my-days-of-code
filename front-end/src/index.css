@@ -17,3 +17,37 @@ body {
 code {
   font-family: 'Exo 2', sans-serif;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-background-color);
+  background-image: url(../images/dark-mode-background.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--primary-font-color)
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.days, .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.days {
+  width: 67%;
+}
+
+.info {
+  width: 33%;
+}
