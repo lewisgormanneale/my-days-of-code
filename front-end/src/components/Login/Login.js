@@ -16,8 +16,6 @@ function Login({ user, setUser }) {
     })
   }, [setUser])
 
-  
-
   async function signInWithGitHub() {
     await supabase.auth.signInWithOAuth({
       provider: 'github'

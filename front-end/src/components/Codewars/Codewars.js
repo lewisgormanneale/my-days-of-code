@@ -16,7 +16,7 @@ function Codewars({ codewars_username, codewarsData, setCodewarsData }) {
   return (
     <div className="codewars-completed">
       <p>{codewarsData.length} Codewars Challenges Completed</p>
-      <img src={"https://www.codewars.com/users/" + codewars_username + "/badges/large"} alt={codewars_username}></img>
+      <img src={"https://www.codewars.com/users/" + codewars_username + "/badges/micro"} alt={codewars_username}></img>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 
 import daysRouter from "./routes/days.js";
-import usersRouter from "./routes/users.js";
+import profilesRouter from "./routes/profiles.js";
 
 const app = express();
 
@@ -13,6 +13,6 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/days", daysRouter);
-app.use("/api/users", usersRouter);
+app.use("/api/profiles", profilesRouter);
 
 export default app;
