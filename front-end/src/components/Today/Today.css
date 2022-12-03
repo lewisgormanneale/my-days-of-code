@@ -6,10 +6,12 @@
     width: 80%;
     padding: 20px;
     margin: 20px;
+    margin-top: 12vh;
     color: var(--primary-font-color);
     background-color: var(--secondary-background-color);
     border: 5px solid var(--primary-background-color);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(15, 15, 15, 0.594);
     border-radius: 20px;
 }
 
@@ -69,4 +71,22 @@
 .submit-button:hover {
     transition: all .1s ease;
     box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+}
+
+.streak {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+}
+
+.streak > p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
 }

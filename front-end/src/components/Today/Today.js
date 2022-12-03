@@ -6,10 +6,12 @@ function Today({ date, user, profile }) {
         <div className="today">
             <div className="welcome">
                 {profile &&
-                    <p>Hello {profile.username}! Today's date is {date}</p>
+                    <h3>Hello {profile.username}! Today's date is {date}</h3>
                 }
             </div>
-            <p>Record your day of code:</p>
+            <div>
+                <h3>Record your day of code below:</h3>
+            </div>
             <form>
                 <div className="day-info">
                     <input type='dropdown' placeholder="Day #"></input>
@@ -17,11 +19,14 @@ function Today({ date, user, profile }) {
                 </div>
                 <textarea></textarea>
                 <div className="stats-and-submit">
-                    <p>Github:</p>
-                    <p>Codewars:</p>
+                    <p>Github Commits:</p>
+                    <p>Codewars Challenges:</p>
                     <button className="submit-button">Submit</button>
                 </div>
-                
+                <div className="streak">
+                    <h3>Current Streak:</h3>
+                    <p>(Missed a day? You can record previous days by changing the date below!)</p>
+                </div>
             </form>
             
         </div>

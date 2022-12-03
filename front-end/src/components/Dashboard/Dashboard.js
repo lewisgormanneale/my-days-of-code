@@ -4,6 +4,7 @@ import './Dashboard.css'
 import Stats from "../Stats/Stats"
 import Today from "../Today/Today"
 import PreviousList from "../PreviousList/PreviousList"
+import ViewLoggedInUser from "../ViewLoggedInUser/ViewLoggedInUser.js"
 
 function Dashboard() {
     const { user } = useAuth()
@@ -34,6 +35,7 @@ function Dashboard() {
         <main className="main">
             <div className="info">
                 <Stats date={date} user={user} profile={profile} codewarsData={codewarsData} setCodewarsData={setCodewarsData}/>
+                <ViewLoggedInUser profile={profile}/>
             </div>
             <div className="days">
                 <Today date={date} user={user} profile={profile}/>
