@@ -3,10 +3,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .previous-list > h3 {
     background-color: var(--primary-background-color);
     padding: 20px;
     border-radius: 20px;
+    width: 80%;
 }

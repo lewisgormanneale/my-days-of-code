@@ -2,7 +2,7 @@ import React from "react";
 import "./Codewars.css"
 import { useEffect} from "react";
 
-function Codewars({ codewars_username, codewarsData, setCodewarsData }) {
+function Codewars({ user, profile, codewars_username, codewarsData, setCodewarsData }) {
 
   useEffect(() => {
     async function getCompleted() {
@@ -10,8 +10,8 @@ function Codewars({ codewars_username, codewarsData, setCodewarsData }) {
         const data = await response.json();
         setCodewarsData(data.data)
     }
-    getCompleted();
-  }, [codewars_username, setCodewarsData]);
+      getCompleted();
+  }, [profile]);
 
   if (codewars_username) {
     return (
@@ -20,13 +20,7 @@ function Codewars({ codewars_username, codewarsData, setCodewarsData }) {
         <img src={"https://www.codewars.com/users/" + codewars_username + "/badges/micro"} alt={codewars_username}></img>
       </div>
     );
-    } else {
-    return (
-      <div></div>
-    )
-  }
-
-  
+  };
 }
 
 export default Codewars;

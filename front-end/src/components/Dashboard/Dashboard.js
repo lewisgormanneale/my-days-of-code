@@ -7,10 +7,9 @@ import PreviousList from "../PreviousList/PreviousList"
 
 function Dashboard() {
     const { user } = useAuth()
-
     const [date, setDate] = useState()
-    const [codewarsData, setCodewarsData] = useState();
-    const [profile, setProfile] = useState();
+    const [codewarsData, setCodewarsData] = useState({});
+    const [profile, setProfile] = useState({});
 
     useEffect(() => {
         async function getProfile() {
@@ -38,7 +37,7 @@ function Dashboard() {
             </div>
             <div className="days">
                 <Today date={date} user={user} profile={profile}/>
-                {/* <PreviousList user={user} codewarsData={codewarsData} /> */}
+                <PreviousList user={user} codewarsData={codewarsData} />
             </div>
         </main>
     )

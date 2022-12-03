@@ -22,7 +22,51 @@
     padding: 0px 20px;
 }
 
-.today > textarea {
-    height: 180px;
-    width: 50%;
+.today > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.today > form > textarea {
+    min-height: 150px;
+    min-width: 95%;
+    max-width: 95%;
+}
+
+.day-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+    margin-bottom: 20px;
+}
+
+.stats-and-submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+}
+
+.submit-button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    margin-top: 20px;
+    border: 0;
+    color: #000021;
+    background: var(--primary-font-color);
+    line-height: 1.15;
+    font-size: 16px;
+}
+
+.submit-button:hover {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
 }

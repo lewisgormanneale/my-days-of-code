@@ -13,6 +13,6 @@ export async function getDayById(id) {
 }
 
 export async function getDayByUserId(id) {
-  const data = await query("SELECT * FROM days WHERE id = $1;", [id]);
+  const data = await query("SELECT * FROM days WHERE user_id = $1;", [id]);
   return data.rows;
 }
