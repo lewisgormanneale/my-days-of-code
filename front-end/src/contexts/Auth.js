@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
     
     const value = {
         signUp: (data) => supabase.auth.signUp(data),
-        signInWithGitHub: (data) => supabase.auth.signInWithOAuth(data),
+        signInWithGitHub: async (data) => await supabase.auth.signInWithOAuth(data),
         signOut: () => supabase.auth.signOut(),
         user
     };

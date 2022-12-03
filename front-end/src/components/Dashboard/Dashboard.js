@@ -20,7 +20,7 @@ function Dashboard() {
             console.log(data.payload)
           }
           getProfile();
-      }, [])     
+      }, [user])     
 
     useEffect(() => {
         function getDate() {
@@ -38,7 +38,7 @@ function Dashboard() {
             </div>
             <div className="days">
                 <Today date={date} user={user} profile={profile}/>
-                <PreviousList codewarsData={codewarsData} />
+                {/* <PreviousList user={user} codewarsData={codewarsData} /> */}
             </div>
         </main>
     )

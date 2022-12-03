@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import React from 'react';
 import { AuthProvider } from './contexts/Auth'
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
@@ -17,12 +17,13 @@ function App() {
             <Route 
               path='/'
               element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
               }
             />
-            <Route exact path="/login" element={ <Login /> } />
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </AuthProvider>
       </div>

@@ -1,8 +1,57 @@
-.login {
+.login-screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 90vh;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 50vh;
+    padding: 50px;
+    border-radius: 30px;
+    background-color: var(--primary-background-color);
+}
+
+.github-login-button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: helvetica;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: #ddd;
+    background-color: black;
+    line-height: 1.15;
+    font-size: 16px;
+    height: 30px;
+    padding: 1px 12px 0 0;
+}
+
+.github-login-button > svg {
+    width: 30px; 
+    vertical-align: middle; 
+    border-right:0.5px solid #aaa;
+}
+
+.github-login-button > svg > rect {
+    width: 512;
+    height: 512;
+    fill: #1B1817;
+}
+
+.github-login-button > svg > path {
+    fill: #fff;
+}
+.github-login-button > span {
+    padding-left: 5px
 }
