@@ -3,7 +3,6 @@
   --secondary-background-color: #0b2314c7;
   --primary-font-color: #72fdd8;
   --secondary-font-color: black;
-  background-color: black;
 }
 
 body {
@@ -12,6 +11,7 @@ body {
   font-family: 'Exo 2', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
@@ -28,26 +28,4 @@ code {
   background-size: cover;
   background-attachment: fixed;
   color: var(--primary-font-color)
-}
-
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.days, .info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.days {
-  width: 67%;
-}
-
-.info {
-  width: 33%;
 }

@@ -1,41 +1,33 @@
-import React, { useEffect } from "react";
-import { supabase } from '../../supabase.js'
-import "./Login.css"
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../contexts/Auth'
+import './Login.css'
 
-function Login({ user, setUser }) {
+export function Login() {
+  const [error, setError] = useState(null)
+  const { signInWithGitHub } = useAuth()
+  const navigate = useNavigate()
 
-  useEffect(() => {
-    async function checkUser() {
-      const { data: { user } } = await supabase.auth.getUser()
-      setUser(user)
-      console.log(user.id)
-    }
-    checkUser();
-    window.addEventListener('hashchange', function() {
-      checkUser();
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const { errorMessage } = await signInWithGitHub({
+        provider: 'github'
     })
-  }, [setUser])
+    if (errorMessage) {
+      setError(errorMessage)
+      console.log(errorMessage)
+      return error;
+    } else {
+       navigate('/')
+    }
+  };
 
-  async function signInWithGitHub() {
-    await supabase.auth.signInWithOAuth({
-      provider: 'github'
-    });
-  }
-
-  async function signOut() {
-    await supabase.auth.signOut()
-    setUser(null)
-  }
-
-  if (user) {
-    return (
-      <button onClick={signOut}>Sign Out</button>
-    )
-  }
   return (
-    <button onClick={signInWithGitHub}>Sign In With GitHub</button>
+    <div className='login'>
+      <h2>Welcome to My Days Of Code! Sign In Below:</h2>
+      <button onClick={handleSubmit}>Sign In With GitHub</button>
+    </div>
   )
-    
-};
+}
 
 export default Login;

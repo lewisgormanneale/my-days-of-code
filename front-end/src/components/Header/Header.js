@@ -1,15 +1,25 @@
 import React from "react";
-import Login from "../Login/Login.js";
 import "./Header.css"
+// import { useNavigate } from "react-router-dom";
+// import { useAuth } from '../../contexts/Auth.js'
 
-function Header({ user, setUser }) {
+function Header() {
+    // const navigate = useNavigate()
+    // const { user, signOut } = useAuth()
+
+    // async function handleSignOut() {
+    //     await signOut()
+    //     navigate('/login')
+    // }
+
     return (
         <header className="header">
-            <p>(icon)</p>
             <h1>My Days Of Code</h1>
-            <div>
-                <Login user={user} setUser={setUser} />
-            </div>
+            {/* <div>
+                <p>Logged in as {user.id}</p>
+                <button onClick={handleSignOut}>Sign out</button>
+            </div> */}
+            
         </header>
     );
 }

@@ -1,47 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import Today from './components/Today/Today.js';
-import PreviousList from './components/PreviousList/PreviousList.js';
-import Header from './components/Header/Header.js';
-import Stats from './components/Stats/Stats.js';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import React from 'react';
+import { AuthProvider } from './contexts/Auth'
+import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
+
+import Header from './components/Header/Header';
+import Login from './components/Login/Login'
+import Dashboard from './components/Dashboard/Dashboard'
 
 function App() {
-  const [date, setDate] = useState()
-  const [user, setUser] = useState(null)
-  const [profile, setProfile] = useState(null)
-  const [codewarsData, setCodewarsData] = useState({})
-  
-  useEffect(() => {
-    function getDate() {
-      let newDate = new Date();
-      newDate = newDate.getFullYear()+"-"+(newDate.getMonth()+1)+"-"+ newDate.getDate();
-      setDate(newDate);
-    }
-    getDate();
-  }, [])
-
-    useEffect(() => {
-        async function getProfileById() {
-          const url = `http://localhost:3001/api/profiles/${user.id}`
-          const response = await fetch(url);
-          const data = await response.json()
-          setProfile(data.payload);
-        }
-        getProfileById();
-      }, [user]);
-
   return (
-    <div className="app">
-      <Header user={user} setUser={setUser} />
-      <main className="main">
-        <div className="info">
-          <Stats date={date} user={user} codewarsData={codewarsData} setCodewarsData={setCodewarsData} profile={profile}/>
-        </div>
-        <div className="days">
-          <Today date={date} user={user}/>
-          <PreviousList codewarsData={codewarsData} />
-        </div>
-      </main>
-    </div>
+    <BrowserRouter>
+      <div className="app">
+      <Header />
+        <AuthProvider>
+          <Routes>
+            <Route 
+              path='/'
+              element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+              }
+            />
+            <Route exact path="/login" element={ <Login /> } />
+          </Routes>
+        </AuthProvider>
+      </div>
+    </BrowserRouter>
   );
 };
 

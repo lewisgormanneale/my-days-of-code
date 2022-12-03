@@ -1,0 +1,21 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+  
+.days, .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.days {
+    width: 67%;
+}
+
+.info {
+    width: 33%;
+}
