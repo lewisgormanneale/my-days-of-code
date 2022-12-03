@@ -8,7 +8,7 @@ import {
     TwitterIcon
 } from "react-share";
 
-import "./index.css"
+import "./Share.css"
 
 function Share() {
     return (

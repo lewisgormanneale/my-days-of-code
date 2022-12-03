@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Share from '../Share';
-import "./index.css"
+import Share from '../Share/Share.js';
+import "./Day.css"
 
 function Day({ currentDay, codewarsData }) {
   

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./index.css"
-
-import Day from "../Day";
+import "./PreviousList.css"
+import Day from "../Day/Day.js";
 
 function PreviousList({ codewarsData }) {
 
@@ -18,7 +17,7 @@ function PreviousList({ codewarsData }) {
 
     return (
         <div className="previous-list">
-            <h3>Previous Days Of Code</h3>
+            <h3>Your Previous Days Of Code</h3>
             {days.map(function (currentDay) {
                 return (
                     <Day currentDay={currentDay} codewarsData={codewarsData}/>

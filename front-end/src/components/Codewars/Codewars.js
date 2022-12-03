@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css"
+import "./Codewars.css"
 import { useEffect} from "react";
 
 function Codewars({ codewars_username, codewarsData, setCodewarsData }) {

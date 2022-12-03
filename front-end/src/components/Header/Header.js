@@ -1,7 +1,6 @@
 import React from "react";
-import Login from "../Login";
-import Register from "../Register";
-import "./index.css"
+import Login from "../Login/Login.js";
+import "./Header.css"
 
 function Header({ user, setUser }) {
     return (
@@ -10,7 +9,6 @@ function Header({ user, setUser }) {
             <h1>My Days Of Code</h1>
             <div>
                 <Login user={user} setUser={setUser} />
-                <Register user={user} setUser={setUser} />
             </div>
         </header>
     );
