@@ -3,7 +3,7 @@ import Codewars from "../Codewars/Codewars.js";
 import GitHubCommits from "../GitHubCommits/GitHubCommits.js";
 import "./Stats.css"
 
-function Stats({date, user, profile, codewarsData, setCodewarsData }) {
+function Stats({user, profile, codewarsData, setCodewarsData }) {
     return (
         <div className="stats">
             <h3>Statistics</h3>

@@ -17,11 +17,9 @@ export function AuthProvider({ children }) {
             const { data } = await supabase.auth.getSession();
             const newSession = data.session;
             setSession(newSession ?? null)
-            console.log(session)
             setUser(newSession.user ?? null)
             setLoading(false)
         };
-
         getSession();
 
         const { data: listener } = supabase.auth.onAuthStateChange(

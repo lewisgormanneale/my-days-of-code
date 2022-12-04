@@ -1,12 +1,27 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { supabase } from "../../supabase";
 import "./Today.css"
 
-function Today({ date, user, profile }) {
+function Today({ user, profile }) {
+    const todaysDate = new Date().toISOString().substr(0, 10);
+    const [postDay, setPostDay] = useState("");
+    const [postDate, setPostDate] = useState(todaysDate);
+    const [postText, setPostText] = useState("");
+
+    async function createDay() {
+        let { data, error } = await supabase
+            .from('days')
+            .insert({ day: {postDay}, date: {postDate}, post:{postText} })
+        setPostDay("");
+        setPostDate("");
+        setPostText("");
+    };
+
     return (
         <div className="today">
             <div className="welcome">
                 {profile &&
-                    <h3>Hello {profile.username}! Today's date is {date}</h3>
+                    <h3>Hello {profile.username}! Today's date is {todaysDate}</h3>
                 }
             </div>
             <div className="call-to-action">
@@ -14,8 +29,26 @@ function Today({ date, user, profile }) {
             </div>
             <form>
                 <div className="day-info">
-                    <input type='dropdown' placeholder="Day #"></input>
-                    <input type='dropdown' placeholder="Date"></input>
+                    <input
+                        className='post-day'
+                        type='number' 
+                        min='1' 
+                        max='1000'
+                        value={postDay}
+                        onChange={(e) => {
+                            setPostDay(e.target.value);
+                            console.log(postDay)
+                        }}
+                        ></input>
+                    <input 
+                        className="post-date"
+                        type='date'
+                        min="2022-01-01"
+                        value={postDate}
+                        onChange={(e) => {
+                            setPostDate(e.target.value);
+                        }}
+                    ></input>
                 </div>
                 <textarea placeholder="e.g. Today I signed up for My Days Of Code to track my progress!"></textarea>
                 <div className="stats-and-submit">

@@ -10,13 +10,12 @@ function PreviousList({ user, codewarsData }) {
     useEffect(() => {
     async function getDays() {
         const { data, error } = await supabase
-        .from('days')
-        .select('id', 'day, date, post')
-        .order('date', { ascending: false })
+            .from('days')
+            .select('id, day, date, post')
+            .order('date', { ascending: false })
         if (error) {
             console.log(error)
         } else {
-            console.log(data)
             setDays(data);
         };
     }

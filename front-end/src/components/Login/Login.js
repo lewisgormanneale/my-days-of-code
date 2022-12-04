@@ -18,10 +18,10 @@ export function Login() {
     })
     if (errorMessage) {
       setError(errorMessage)
-      console.log(errorMessage)
       return error;
     } else {
-      const oAuthToken = data.session.provider_token // use to access github API
+      const oAuthToken = data.url;
+      console.log(oAuthToken)
       navigate('/')
     }
   };
