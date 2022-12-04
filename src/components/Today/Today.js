@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { supabase } from "../../supabase";
 import "./Today.css"
 
-function Today({ user, profile, dayChecker, setDayChecker }) {
+function Today({ user, profile }) {
     const todaysDate = new Date().toISOString().substr(0, 10);
     const [postDay, setPostDay] = useState(1);
     const [postDate, setPostDate] = useState(todaysDate);
@@ -13,7 +13,6 @@ function Today({ user, profile, dayChecker, setDayChecker }) {
         let { data, error } = await supabase
             .from('days')
             .insert({ day: postDay, date: postDate, post: postText, user_id: profile.id })
-        setDayChecker(dayChecker++)
         setPostDay("");
         setPostDate("");
         setPostText("");
@@ -23,36 +22,47 @@ function Today({ user, profile, dayChecker, setDayChecker }) {
         <div className="today">
             <div className="welcome">
                 {profile &&
-                    <h3>Hello {profile.username}! Today's date is {todaysDate}</h3>
+                    <div className="welcome-text">
+                        <h3>Hello {profile.username}! Today's date is {todaysDate}.</h3>
+                        <h3>Record Your Day Of Code Below...</h3>
+                    </div>
                 }
-            </div>
-            <div className="call-to-action">
-                <h3>Record your day of code below:</h3>
             </div>
             <form>
                 <div className="day-info">
-                    <input
-                        className='post-day'
-                        type='number' 
-                        min='1' 
-                        max='1000'
-                        value={postDay}
-                        onChange={(e) => {
-                            setPostDay(e.target.value);
-                        }}
+                    <div className="post-day-container">
+                        <label htmlFor="post-day">Day:</label>
+                        <input
+                            name="post-day"
+                            id="post-day"
+                            className='post-day'
+                            type='number' 
+                            min='1' 
+                            max='1000'
+                            value={postDay}
+                            onChange={(e) => {
+                                setPostDay(e.target.value);
+                            }}
                         ></input>
-                    <input 
-                        className="post-date"
-                        type='date'
-                        min="2022-01-01"
-                        value={postDate}
-                        onChange={(e) => {
-                            setPostDate(e.target.value);
-                        }}
-                    ></input>
+                    </div>
+                    <div className="post-date-container">
+                        <label htmlFor='post-date'>Date:</label>
+                        <input
+                            name="post-date"
+                            id="post-date"
+                            className="post-date"
+                            type='date'
+                            min="2022-01-01"
+                            value={postDate}
+                            onChange={(e) => {
+                                setPostDate(e.target.value);
+                            }}
+                        ></input>
+                    </div>
                 </div>
                 <textarea 
                     placeholder="e.g. Today I signed up for My Days Of Code to track my progress!"
+                    value={postText}
                     onChange={(e) => {
                         setPostText(e.target.value);
                     }}

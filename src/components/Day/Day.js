@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { supabase } from '../../supabase.js';
 import Share from '../Share/Share.js';
 import "./Day.css"
 
@@ -22,9 +23,13 @@ function Day({ currentDay, codewarsData }) {
     console.log('hello')
   }
 
-  async function deleteDay() {
-    console.log('hello')
-  }
+  async function deleteDay(e) {
+    e.preventDefault()
+    let { data, error } = await supabase
+        .from('days')
+        .delete()
+        .eq('id', currentDay.id)
+  };
 
   return (
     <div className="day">
