@@ -35,9 +35,11 @@
 }
 
 .today > form > textarea {
-    min-height: 150px;
+    font-family: sans-serif;
     min-width: 95%;
     max-width: 95%;
+    height: 150px;
+    resize: none;
 }
 
 .day-info {

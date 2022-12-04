@@ -25,7 +25,7 @@ function Day({ currentDay, codewarsData }) {
             <p>{currentDate}</p>
         </div>
         <div>
-            <p>{currentDay.primary_reflection}</p>
+            <p>{currentDay.post}</p>
         </div>
         <div>
           <p>Codewars Challenges completed on this day: {dailyCodewars.length}</p>
