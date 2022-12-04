@@ -9,13 +9,16 @@ export const useAuth = () => {
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null)
+    const [session, setSession] = useState(null)
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         async function getSession() {
             const { data } = await supabase.auth.getSession();
-            const session = data.session;
-            setUser(session.user ?? null)
+            const newSession = data.session;
+            setSession(newSession ?? null)
+            console.log(session)
+            setUser(newSession.user ?? null)
             setLoading(false)
         };
 

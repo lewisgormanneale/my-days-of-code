@@ -21,7 +21,8 @@ export function Login() {
       console.log(errorMessage)
       return error;
     } else {
-       navigate('/')
+      const oAuthToken = data.session.provider_token // use to access github API
+      navigate('/')
     }
   };
 

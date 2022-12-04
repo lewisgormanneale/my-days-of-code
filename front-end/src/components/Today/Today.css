@@ -6,7 +6,6 @@
     width: 90%;
     padding: 20px;
     margin: 20px;
-    margin-top: 35vh;
     box-sizing: border-box;
     color: var(--primary-font-color);
     background-color: var(--secondary-background-color);
@@ -38,8 +37,7 @@
     font-family: sans-serif;
     min-width: 95%;
     max-width: 95%;
-    height: 150px;
-    resize: none;
+    min-height: 100px;
 }
 
 .day-info {

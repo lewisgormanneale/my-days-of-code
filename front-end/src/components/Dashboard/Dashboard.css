@@ -1,22 +1,15 @@
 .main {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
     width: 100%;
-}
-  
-.days, .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .days {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     width: 75%;
-    position: absolute;
-    top: 10vh;
-    right: 0vw;
+    margin-top: 10vh;
     height: 90vh;
     overflow-y: scroll;
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../../../images/dark-mode-background.jpg");
@@ -26,5 +19,9 @@
 }
 
 .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 25%;
 }

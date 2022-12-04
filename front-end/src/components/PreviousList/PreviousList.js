@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "./PreviousList.css"
 import Day from "../Day/Day.js";
+import { supabase } from "../../supabase";
 
 function PreviousList({ user, codewarsData }) {
 
     const [days, setDays] = useState([]);
 
     useEffect(() => {
-        async function getDays() {
-          const response = await fetch(`http://localhost:3001/api/days/`);
-          const data = await response.json();
-          setDays(data.payload);
-        }
-        getDays();
-      }, [user]);
+    async function getDays() {
+        const { data, error } = await supabase
+        .from('days')
+        .select('id', 'day, date, post')
+        .order('date', { ascending: false })
+        if (error) {
+            console.log(error)
+        } else {
+            console.log(data)
+            setDays(data);
+        };
+    }
+    getDays();
+    }, [user]);
 
     return (
         <div className="previous-list">
