@@ -27,7 +27,7 @@ function PreviousList({ user, codewarsData }) {
             <h3>Your Previous Days Of Code</h3>
             {days.map(function (currentDay) {
                 return (
-                    <Day currentDay={currentDay} codewarsData={codewarsData}/>
+                    <Day key={currentDay.id} currentDay={currentDay} codewarsData={codewarsData}/>
                 )
             })}
         </div>

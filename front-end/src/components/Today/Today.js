@@ -4,14 +4,15 @@ import "./Today.css"
 
 function Today({ user, profile }) {
     const todaysDate = new Date().toISOString().substr(0, 10);
-    const [postDay, setPostDay] = useState("");
+    const [postDay, setPostDay] = useState(1);
     const [postDate, setPostDate] = useState(todaysDate);
     const [postText, setPostText] = useState("");
 
-    async function createDay() {
+    async function createDay(e) {
+        e.preventDefault()
         let { data, error } = await supabase
             .from('days')
-            .insert({ day: {postDay}, date: {postDate}, post:{postText} })
+            .insert({ day: postDay, date: postDate, post: postText, user_id: profile.id })
         setPostDay("");
         setPostDate("");
         setPostText("");
@@ -37,7 +38,6 @@ function Today({ user, profile }) {
                         value={postDay}
                         onChange={(e) => {
                             setPostDay(e.target.value);
-                            console.log(postDay)
                         }}
                         ></input>
                     <input 
@@ -50,11 +50,16 @@ function Today({ user, profile }) {
                         }}
                     ></input>
                 </div>
-                <textarea placeholder="e.g. Today I signed up for My Days Of Code to track my progress!"></textarea>
+                <textarea 
+                    placeholder="e.g. Today I signed up for My Days Of Code to track my progress!"
+                    onChange={(e) => {
+                        setPostText(e.target.value);
+                    }}
+                ></textarea>
                 <div className="stats-and-submit">
                     <p>Github Commits:</p>
                     <p>Codewars Challenges:</p>
-                    <button className="submit-button">Submit</button>
+                    <button className="submit-button" onClick={createDay}>Submit</button>
                 </div>
             </form>
             

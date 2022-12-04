@@ -15,12 +15,13 @@
 }
 
 .image-container {
+    box-sizing: border-box;
     width: 40%;
+    padding-right: 2vw;
 }
 
 .logged-in-user-image {
     height: auto;
-    max-height: 12vh;
     max-width: 100%;
 }
 
