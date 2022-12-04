@@ -18,7 +18,9 @@
     justify-content: space-between;
     width: 90%;
     background-color: var(--secondary-background-color);
-    color: var(--secondary-font-color);
+    color: rgb(255, 255, 255);
+    font-size: larger;
+    font-weight: bold;
     border-radius: 20px;
     padding: 0px 20px;
 }

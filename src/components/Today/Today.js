@@ -19,7 +19,8 @@ function Today({ user, profile }) {
     };
 
     return (
-        <div className="today">
+        <div className="today-container">
+            <div className="today">
             <div className="welcome">
                 {profile &&
                     <div className="welcome-text">
@@ -73,8 +74,9 @@ function Today({ user, profile }) {
                     <button className="submit-button" onClick={createDay}>Submit</button>
                 </div>
             </form>
-            
+            </div>
         </div>
+        
     );
 }
 

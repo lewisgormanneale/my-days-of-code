@@ -1,3 +1,12 @@
+.today-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #14aa85a5;
+}
+
 .today {
     display: flex;
     flex-direction: column;
@@ -21,7 +30,7 @@
     align-items: center;
     width: 90%;
     background-color: var(--secondary-background-color);
-    color: var(--secondary-font-color);
+    color: rgb(236, 236, 236);
     border-radius: 20px;
     padding: 0px 20px;
 }

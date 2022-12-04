@@ -4,7 +4,27 @@
     box-sizing: border-box;
     align-items: center;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     font-size: 16px;
     background-color: var(--primary-background-color);
 }
+
+ /* unvisited link */
+ a:link {
+    color: red;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: rgb(0, 165, 0);
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: rgb(159, 234, 255);
+  }
+  
+  /* selected link */
+  a:active {
+    color: rgb(255, 255, 255);
+  } 
