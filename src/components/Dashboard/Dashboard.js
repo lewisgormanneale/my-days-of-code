@@ -11,6 +11,7 @@ function Dashboard() {
     const { user, session } = useAuth()
     const [codewarsData, setCodewarsData] = useState({});
     const [profile, setProfile] = useState({});
+    const [dayChecker, setDayChecker] = useState(1);
 
     useEffect(() => {
         async function getProfile() {
@@ -35,8 +36,8 @@ function Dashboard() {
                 <ViewLoggedInUser profile={profile}/>
             </div>
             <div className="days">
-                <Today user={user} profile={profile}/>
-                <PreviousList user={user} codewarsData={codewarsData} />
+                <Today user={user} profile={profile} dayChecker={dayChecker} setDayChecker={setDayChecker}/>
+                <PreviousList user={user} codewarsData={codewarsData} dayChecker={dayChecker}/>
             </div>
         </main>
     )

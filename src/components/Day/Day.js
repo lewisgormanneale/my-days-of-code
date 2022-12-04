@@ -18,19 +18,34 @@ function Day({ currentDay, codewarsData }) {
     getDailyCodewars();
   }, [currentDate, codewarsData])
 
+  async function editDay() {
+    console.log('hello')
+  }
+
+  async function deleteDay() {
+    console.log('hello')
+  }
+
   return (
     <div className="day">
         <div className="day-header">
             <p>Day #{currentDay.day}</p>
             <p>{currentDate}</p>
         </div>
-        <div>
+        <div className='day-text'>
             <p>{currentDay.post}</p>
         </div>
-        <div>
-          <p>Codewars Challenges completed on this day: {dailyCodewars.length}</p>
+        <div className='day-options-and-stats'>
+          <div className='edit-and-delete-day'>
+            <button className="edit-button" onClick={editDay}>Edit Day</button>
+            <button className="delete-button" onClick={deleteDay}>Delete Day</button>
+          </div>
+          <div className='day-stats'>
+            <p>{dailyCodewars.length} Codewars Challenges Completed On This Day</p>
+          </div>
+          <Share />
         </div>
-        <Share />
+        
     </div>
   )
 }

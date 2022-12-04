@@ -3,8 +3,7 @@ import "./PreviousList.css"
 import Day from "../Day/Day.js";
 import { supabase } from "../../supabase";
 
-function PreviousList({ user, codewarsData }) {
-
+function PreviousList({ user, codewarsData, dayChecker }) {
     const [days, setDays] = useState([]);
 
     useEffect(() => {
@@ -18,9 +17,10 @@ function PreviousList({ user, codewarsData }) {
         } else {
             setDays(data);
         };
+        console.log(dayChecker)
     }
     getDays();
-    }, [user]);
+    }, [user, dayChecker]);
 
     return (
         <div className="previous-list">

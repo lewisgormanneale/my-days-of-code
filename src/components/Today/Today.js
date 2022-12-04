@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, { useState } from "react";
 import { supabase } from "../../supabase";
 import "./Today.css"
 
-function Today({ user, profile }) {
+function Today({ user, profile, dayChecker, setDayChecker }) {
     const todaysDate = new Date().toISOString().substr(0, 10);
     const [postDay, setPostDay] = useState(1);
     const [postDate, setPostDate] = useState(todaysDate);
@@ -13,6 +13,7 @@ function Today({ user, profile }) {
         let { data, error } = await supabase
             .from('days')
             .insert({ day: postDay, date: postDate, post: postText, user_id: profile.id })
+        setDayChecker(dayChecker++)
         setPostDay("");
         setPostDate("");
         setPostText("");
