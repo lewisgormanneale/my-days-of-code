@@ -4,7 +4,7 @@
     position: fixed;
     top: 10vh;
     left: 0vw;
-    height: 80vh;
+    height:75vh;
     width: 25%;
     z-index: 2;
     overflow-y: scroll;
@@ -19,4 +19,24 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+}
+
+
+.streak {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+}
+
+.streak > p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    font-size: 12px;
 }
