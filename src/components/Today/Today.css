@@ -8,10 +8,9 @@
     margin: 20px;
     box-sizing: border-box;
     color: var(--primary-font-color);
-    background-color: var(--secondary-background-color);
-    border: 5px solid var(--primary-background-color);
+    background-color: var(--primary-background-color);
+    border: 2px solid var(--secondary-background-color);
     backdrop-filter: blur(10px);
-    background-color: rgba(15, 15, 15, 0.594);
     border-radius: 20px;
 }
 
@@ -21,7 +20,8 @@
     justify-content: center;
     align-items: center;
     width: 90%;
-    background-color: var(--primary-background-color);
+    background-color: var(--secondary-background-color);
+    color: var(--secondary-font-color);
     border-radius: 20px;
     padding: 0px 20px;
 }
@@ -50,7 +50,7 @@
 }
 
 .today > form > textarea {
-    font-family: sans-serif;
+    font-family: 'Exo 2', sans-serif;
     min-width: 95%;
     max-width: 95%;
     min-height: 100px;
@@ -78,7 +78,7 @@
 
 .post-day-container > input {
     margin-left: 10px;
-    font-family: sans-serif;
+    font-family: 'Exo 2', sans-serif;
     font-size: 20px;
     width: 50%;
 }
@@ -94,7 +94,7 @@
 
 .post-date-container > input {
     margin-left: 10px;
-    font-family: sans-serif;
+    font-family: 'Exo 2', sans-serif;
     font-size: 20px;
 }
 

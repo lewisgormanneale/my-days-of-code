@@ -12,10 +12,10 @@
     margin-top: 10vh;
     height: 90vh;
     overflow-y: scroll;
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../../../images/dark-mode-background.jpg");
+    background-image: url(../../../images/dark-mode-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    overscroll-behavior: contain;
 }
 
 .info {
