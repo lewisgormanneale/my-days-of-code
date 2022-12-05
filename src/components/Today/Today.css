@@ -59,13 +59,21 @@
     width: 100%;
 }
 
-.today > form > textarea {
+.quill {
+    background-color: white;
+    color: black;
     font-family: 'Exo 2', sans-serif;
     min-width: 95%;
     max-width: 95%;
-    min-height: 100px;
+    min-height: 150px;
     border-radius: 20px;
     padding: 20px;
+    
+}
+
+.ql-editor {
+    min-height: 150px;
+    max-height: 300px;
 }
 
 .day-info {
@@ -91,6 +99,7 @@
     font-family: 'Exo 2', sans-serif;
     font-size: 20px;
     width: 50%;
+    text-align: center;
 }
 
 .post-date-container {

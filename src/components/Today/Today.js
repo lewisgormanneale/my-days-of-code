@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import ReactQuill from 'react-quill';
 import { supabase } from "../../supabase";
 import "./Today.css"
+import 'react-quill/dist/quill.snow.css';
 
 function Today({ profile, updates, setUpdates }) {
     const todaysDate = new Date().toISOString().substr(0, 10);
@@ -17,8 +19,8 @@ function Today({ profile, updates, setUpdates }) {
             console.log(error)
         }
         setUpdates([...updates, data])
-        setPostDay("");
-        setPostDate("");
+        setPostDay(1);
+        setPostDate(todaysDate);
         setPostText("");
     };
 
@@ -65,13 +67,7 @@ function Today({ profile, updates, setUpdates }) {
                         ></input>
                     </div>
                 </div>
-                <textarea 
-                    placeholder="e.g. Today I signed up for My Days Of Code to track my progress!"
-                    value={postText}
-                    onChange={(e) => {
-                        setPostText(e.target.value);
-                    }}
-                ></textarea>
+                <ReactQuill theme="snow" value={postText} onChange={setPostText} />
                 <div className="stats-and-submit">
                     <p>Github Commits:</p>
                     <p>Codewars Challenges:</p>

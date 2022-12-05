@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../../supabase.js';
+import ReactQuill from 'react-quill';
 import Share from '../Share/Share.js';
 import "./Day.css"
 
@@ -41,9 +42,11 @@ function Day({ currentDay, updates, setUpdates, codewarsData }) {
             <p>Day #{currentDay.day}</p>
             <p>{currentDate}</p>
         </div>
-        <div className='day-text'>
-            <p>{currentDay.post}</p>
-        </div>
+        <ReactQuill
+          value={currentDay.post}
+          readOnly={true}
+          theme={"bubble"}
+        />
         <div className='day-options-and-stats'>
           <div className='edit-and-delete-day'>
             <button className="edit-button" onClick={editDay}>Edit Day</button>
