@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { supabase } from "../../supabase";
 import "./Today.css"
 
-function Today({ user, profile }) {
+function Today({ profile, updates, setUpdates }) {
     const todaysDate = new Date().toISOString().substr(0, 10);
     const [postDay, setPostDay] = useState(1);
     const [postDate, setPostDate] = useState(todaysDate);
@@ -13,6 +13,10 @@ function Today({ user, profile }) {
         let { data, error } = await supabase
             .from('days')
             .insert({ day: postDay, date: postDate, post: postText, user_id: profile.id })
+        if (error) {
+            console.log(error)
+        }
+        setUpdates([...updates, data])
         setPostDay("");
         setPostDate("");
         setPostText("");

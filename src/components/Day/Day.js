@@ -3,8 +3,7 @@ import { supabase } from '../../supabase.js';
 import Share from '../Share/Share.js';
 import "./Day.css"
 
-function Day({ currentDay, codewarsData }) {
-  
+function Day({ currentDay, updates, setUpdates, codewarsData }) {
   const [dailyCodewars, setDailyCodewars] = useState([])
   const [currentDate, setCurrentDate] = useState(currentDay.date.slice(0, 10))
 
@@ -21,6 +20,7 @@ function Day({ currentDay, codewarsData }) {
 
   async function editDay() {
     console.log('hello')
+    
   }
 
   async function deleteDay(e) {
@@ -29,6 +29,10 @@ function Day({ currentDay, codewarsData }) {
         .from('days')
         .delete()
         .eq('id', currentDay.id)
+    if (error) {
+      console.log(error)
+    }
+    setUpdates([...updates, data])
   };
 
   return (

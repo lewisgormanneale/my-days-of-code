@@ -3,7 +3,7 @@ import "./PreviousList.css"
 import Day from "../Day/Day.js";
 import { supabase } from "../../supabase";
 
-function PreviousList({ user, codewarsData }) {
+function PreviousList({ user, updates, setUpdates, codewarsData }) {
     const [days, setDays] = useState([]);
 
     useEffect(() => {
@@ -19,14 +19,14 @@ function PreviousList({ user, codewarsData }) {
         };
     }
     getDays();
-    }, [user]);
+    }, [user, updates]);
 
     return (
         <div className="previous-list">
             <h3>Your Previous Days Of Code</h3>
             {days.map(function (currentDay) {
                 return (
-                    <Day key={currentDay.id} currentDay={currentDay} codewarsData={codewarsData}/>
+                    <Day key={currentDay.id} currentDay={currentDay} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData}/>
                 )
             })}
         </div>
