@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect, createContext } from 'react'
 import { supabase } from '../supabase'
+import { useLocalStorage } from "./UseLocalStorage";
 
 const AuthContext = createContext()
 
@@ -8,7 +9,7 @@ export const useAuth = () => {
 };
 
 export function AuthProvider({ children }) {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useLocalStorage("user", null);
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
