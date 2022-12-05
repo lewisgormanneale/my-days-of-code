@@ -15,7 +15,7 @@ function ViewLoggedInUser({ profile }) {
   return (
     <div className='logged-in-user'>
         <div className='image-container'>
-            <img className='logged-in-user-image' src={profile.avatar_url} alt={profile.username}></img>
+            <img className='logged-in-user-image' src={profile?.avatar_url} alt={profile?.username}></img>
         </div>
         <div className='logged-in-user-options'>
             <button>View Profile</button>

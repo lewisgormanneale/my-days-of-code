@@ -9,7 +9,7 @@ import ViewLoggedInUser from "../ViewLoggedInUser/ViewLoggedInUser.js"
 import Footer from "../Footer/Footer.js"
 
 function Dashboard() {
-    const { user, session } = useAuth()
+    const { user } = useAuth()
     const [codewarsData, setCodewarsData] = useState({});
     const [profile, setProfile] = useState({});
 
@@ -27,9 +27,10 @@ function Dashboard() {
           };
         };
         getProfile();
-      }, [user, session])
+      }, [user])
     
-    return (
+    if (profile) {
+      return (
         <main className="main">
             <div className="info">
                 <Stats user={user} profile={profile} codewarsData={codewarsData} setCodewarsData={setCodewarsData}/>
@@ -41,7 +42,8 @@ function Dashboard() {
                 <Footer />
             </div>
         </main>
-    )
+    )}
+    
   }
 
 export default Dashboard

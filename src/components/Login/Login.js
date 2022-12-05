@@ -12,9 +12,6 @@ export function Login() {
     e.preventDefault();
     const { data, errorMessage } = await signInWithGitHub({
         provider: 'github',
-        options: {
-          scopes: 'repo gist notifications'
-        }
     })
     if (errorMessage) {
       setError(errorMessage)

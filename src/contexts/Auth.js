@@ -9,15 +9,16 @@ export const useAuth = () => {
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null)
-    const [session, setSession] = useState(null)
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         async function getSession() {
-            const { data } = await supabase.auth.getSession();
-            const newSession = data.session;
-            setSession(newSession ?? null)
-            setUser(newSession.user ?? null)
+            const { data, error } = await supabase.auth.getSession();
+            if (error) {
+              console.log(error)
+            }
+            const session = data.session;
+            setUser(session?.user ?? null)
             setLoading(false)
         };
         getSession();
@@ -36,9 +37,9 @@ export function AuthProvider({ children }) {
       }, [])
     
     const value = {
-        signUp: (data) => supabase.auth.signUp(data),
+        signUp: async (data) => await supabase.auth.signUp(data),
         signInWithGitHub: async (data) => await supabase.auth.signInWithOAuth(data),
-        signOut: () => supabase.auth.signOut(),
+        signOut: async () => await supabase.auth.signOut(),
         user
     };
   
