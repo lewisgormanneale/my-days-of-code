@@ -7,12 +7,13 @@ export function Login() {
   const [error, setError] = useState(null)
   const { signInWithGitHub } = useAuth()
   const navigate = useNavigate()
+  const URL = process.env.SUPABASE_REDIRECT_URL;
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const { data, errorMessage } = await signInWithGitHub({
-        provider: 'github',
-    })
+    const { data, errorMessage } = await signInWithGitHub(
+      { provider: 'github' },
+      { redirectTo: `${URL}/` });
     if (errorMessage) {
       setError(errorMessage)
       return error;
