@@ -13,7 +13,7 @@ function Header() {
     return (
         <header className="header">
             <GiHamburgerMenu />
-            <h1>My Days Of Code</h1>
+            <img src="images/logo.png" alt="logo" className="logo"></img>
             <MdOutlineWbSunny />
         </header>
     );

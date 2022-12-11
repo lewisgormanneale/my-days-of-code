@@ -1,0 +1,14 @@
+.codewars-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 800;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    width: 50px;   
+    height: 50px;
+    background-image: url("../../../public/images/codewars-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}

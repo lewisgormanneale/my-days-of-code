@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactQuill from 'react-quill';
 import { supabase } from "../../supabase";
 import "./Today.css"
 import 'react-quill/dist/quill.snow.css';
+import CodewarsDay from "../CodewarsDay/CodewarsDay";
 
-function Today({ profile, updates, setUpdates }) {
+function Today({ profile, updates, setUpdates, codewarsData }) {
     const todaysDate = new Date().toISOString().substr(0, 10);
     const [postDay, setPostDay] = useState(1);
     const [postDate, setPostDate] = useState(todaysDate);
     const [postText, setPostText] = useState("");
+    const [dailyCodewars, setDailyCodewars] = useState([])
+
+    useEffect(() => {
+        function getDailyCodewars() {
+        for (let i = 0; i < codewarsData.length; i++) {
+            if (todaysDate === codewarsData[i].completedAt.slice(0, 10)) {
+            setDailyCodewars([...dailyCodewars, codewarsData[i].date])
+            }
+        };
+        };
+        getDailyCodewars();
+    }, [codewarsData])
 
     async function createDay(e) {
         e.preventDefault()
@@ -69,8 +82,7 @@ function Today({ profile, updates, setUpdates }) {
                 </div>
                 <ReactQuill theme="snow" value={postText} onChange={setPostText} />
                 <div className="stats-and-submit">
-                    <p>Github Commits:</p>
-                    <p>Codewars Challenges:</p>
+                    <CodewarsDay codewarsCompleted={dailyCodewars.length} />
                     <button className="submit-button" onClick={createDay}>Submit</button>
                 </div>
             </form>

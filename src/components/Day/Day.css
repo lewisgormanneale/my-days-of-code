@@ -6,6 +6,7 @@
     width: 90%;
     max-width: 800px;
     padding: 20px;
+    padding-bottom: 0px;
     margin: 10px;
     box-sizing: border-box;
     color: var(--primary-font-color);
@@ -58,6 +59,7 @@
 
 .edit-button, .delete-button {
     width: 50%;
+    height: 33%;
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -68,7 +70,7 @@
     color: #000021;
     background: var(--primary-font-color);
     line-height: 1.15;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .edit-button:hover, .delete-button:hover {
@@ -77,5 +79,8 @@
 }
 
 .day-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50%;
 }
