@@ -41,6 +41,21 @@
     width: 90%;
 }
 
+.day > .quill {
+    background-color: white;
+    color: black;
+    font-family: 'Exo 2', sans-serif;
+    min-width: 90%;
+    max-width: 90%;
+    min-height: 80px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.day > .quill > .ql-container > .ql-editor {
+    min-height: 80px;
+}
+
 .day-options-and-stats {
     display: flex;
     justify-content: space-between;

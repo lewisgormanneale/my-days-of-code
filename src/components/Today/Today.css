@@ -65,7 +65,7 @@
     width: 100%;
 }
 
-.quill {
+form > .quill {
     background-color: white;
     color: black;
     font-family: 'Exo 2', sans-serif;
