@@ -18,14 +18,19 @@ function ViewLoggedInUser({ profile }) {
 
   return (
     <div className='logged-in-user'>
-        <div className='image-container'>
-            <img className='logged-in-user-image' src={profile?.avatar_url} alt={profile?.username}></img>
-        </div>
-        <div className='logged-in-user-options'>
+        <div className='logged-in-user-name'>
             <p>Logged in as {profile.username}</p>
-            <button onClick={navigateToProfile}>View Profile</button>
-            <button onClick={handleSignOut}>Sign Out</button>
         </div>
+        <div className='user-image-and-options'>
+            <div className='image-container'>
+                <img className='logged-in-user-image' src={profile?.avatar_url} alt={profile?.username}></img>
+            </div>
+            <div className='logged-in-user-options'>
+                <button onClick={navigateToProfile}>View Profile</button>
+                <button onClick={handleSignOut}>Sign Out</button>
+            </div>
+        </div>
+        
     </div>
   )
 }

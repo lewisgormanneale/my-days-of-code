@@ -14,7 +14,7 @@
     align-items: center;
     width: 90%;
     max-width: 1000px;
-    padding: 20px;
+    padding: 10px;
     margin: 20px;
     box-sizing: border-box;
     color: var(--primary-font-color);
@@ -68,8 +68,8 @@
     background-color: white;
     color: black;
     font-family: 'Exo 2', sans-serif;
-    min-width: 95%;
-    max-width: 95%;
+    min-width: 90%;
+    max-width: 90%;
     min-height: 150px;
     border-radius: 10px;
     padding: 20px;
@@ -85,7 +85,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 96%;
+    width: 90%;
     height: 100%;
     margin: 15px;
 }
@@ -126,7 +126,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 96%;
+    width: 90%;
     margin-top: 10px;
 }
 
