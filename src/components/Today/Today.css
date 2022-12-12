@@ -138,8 +138,9 @@
     border-radius: 3px;
     padding: 12px 24px;
     border: 0;
-    color: #000021;
-    background: var(--primary-font-color);
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background-color: var(--primary-button-color);
     line-height: 1.15;
     font-size: 16px;
 }

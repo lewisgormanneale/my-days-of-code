@@ -14,6 +14,7 @@ function Stats({user, profile, codewarsData, setCodewarsData }) {
                         <p>(Missed a day? You can record previous days by changing the date when recording your day of code!)</p>
                 </div>
                 <h3>Total Days Recorded:</h3>
+                <p>Search Users:</p>
             <div className="stats-header">
                 <h3>Connected Account Statistics</h3>
             </div>

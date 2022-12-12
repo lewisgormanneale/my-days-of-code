@@ -25,8 +25,8 @@ function Dashboard() {
               <div className="days">
                   <Today profile={profile} updates={updates} setUpdates={setUpdates}  codewarsData={codewarsData} />
                   <PreviousList user={user} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData} />
+                  <Footer />
               </div>
-              <Footer />
             </div>
         </main>
     )}

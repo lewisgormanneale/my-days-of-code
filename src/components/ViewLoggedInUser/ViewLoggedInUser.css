@@ -6,11 +6,11 @@
     box-sizing: border-box;
     align-items: center;
     position: fixed;
-    bottom: 0vh;
+    top: 10vh;
     left: 0vw;
     width: 25%;
     z-index: 2;
-    background-color: var(--primary-background-color);
+    background-color: var(--secondary-background-color);
     height: 15vh;
 }
 
@@ -23,6 +23,7 @@
 .logged-in-user-image {
     height: auto;
     max-width: 100%;
+    border: 1px solid black;
 }
 
 .logged-in-user-options {
@@ -34,24 +35,37 @@
     width: 60%;
 }
 
+.logged-in-user-options > p {
+    margin: 0;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
 .logged-in-user-options > button {
     display: inline-block;
     outline: none;
     cursor: pointer;
     font-weight: 600;
     border-radius: 3px;
-    border: 0;
-    height: 5vh;
+    border: 1px solid black;
+    height: 3vh;
     width: 80%;
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    background-color: var(--primary-button-color);
     line-height: 1.15;
     font-size: 16px;
 }
 
-.logged-in-user-options > button:nth-child(2) {
-    background-color: #065541;
+.logged-in-user-options > button:first-of-type {
+    height: 5vh;
+    background-color: var(--primary-button-color);
+    color: white;
+
+}
+
+.logged-in-user-options > button:nth-of-type(2) {
+    height: 3vh;
+    background-color: #681717;
     color: white;
 }
 

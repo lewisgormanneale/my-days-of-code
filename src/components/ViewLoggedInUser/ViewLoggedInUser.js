@@ -22,6 +22,7 @@ function ViewLoggedInUser({ profile }) {
             <img className='logged-in-user-image' src={profile?.avatar_url} alt={profile?.username}></img>
         </div>
         <div className='logged-in-user-options'>
+            <p>Logged in as {profile.username}</p>
             <button onClick={navigateToProfile}>View Profile</button>
             <button onClick={handleSignOut}>Sign Out</button>
         </div>
