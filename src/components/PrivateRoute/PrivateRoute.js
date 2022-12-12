@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom'
-import { useAuth } from '../../contexts/Auth.js'
+import { useAuth } from '../../contexts/auth.js'
 
 export function PrivateRoute({ children }) {
   const { user } = useAuth()

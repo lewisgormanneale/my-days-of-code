@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-import { useAuth } from '../../contexts/Auth.js'
+import { useAuth } from '../../contexts/auth.js'
+import { useProfile } from "../../contexts/useProfile.js"
 import { supabase } from "../../supabase.js"
 import './Dashboard.css'
 import Stats from "../Stats/Stats"
@@ -11,24 +12,8 @@ import Footer from "../Footer/Footer.js"
 function Dashboard() {
     const { user } = useAuth()
     const [codewarsData, setCodewarsData] = useState({});
-    const [profile, setProfile] = useState({});
+    const [profile] = useProfile();
     const [updates, setUpdates] = useState([]);
-
-    useEffect(() => {
-        async function getProfile() {
-          if (user) {
-            const { data, error } = await supabase
-              .from('profiles')
-              .select('id, full_name, username, codewars_username, avatar_url')
-            if (error) {
-                console.log(error)
-            } else {
-                setProfile(data[0]);
-            };
-          };
-        };
-        getProfile();
-      }, [user])
     
     if (profile) {
       return (

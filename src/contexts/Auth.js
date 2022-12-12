@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, createContext } from 'react'
 import { supabase } from '../supabase'
-import { useLocalStorage } from "./UseLocalStorage";
+import { useLocalStorage } from "./useLocalStorage";
 
 const AuthContext = createContext()
 

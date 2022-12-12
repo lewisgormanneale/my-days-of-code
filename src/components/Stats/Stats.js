@@ -1,6 +1,5 @@
 import React from "react";
 import Codewars from "../Codewars/Codewars.js";
-import GitHubCommits from "../GitHubCommits/GitHubCommits.js";
 import "./Stats.css"
 
 function Stats({user, profile, codewarsData, setCodewarsData }) {
@@ -14,7 +13,6 @@ function Stats({user, profile, codewarsData, setCodewarsData }) {
             <h4>All Time</h4>
             <div className="api-stats">
                 <Codewars user={user} profile={profile} codewars_username={profile.codewars_username} codewarsData={codewarsData} setCodewarsData={setCodewarsData} />
-                <GitHubCommits />
             </div>
         </div>
     );

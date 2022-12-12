@@ -1,7 +1,7 @@
 import React from 'react'
 import './ViewLoggedInUser.css'
 import { useNavigate } from "react-router-dom";
-import { useAuth } from '../../contexts/Auth.js'
+import { useAuth } from '../../contexts/auth.js'
 
 function ViewLoggedInUser({ profile }) {
     const navigate = useNavigate()
