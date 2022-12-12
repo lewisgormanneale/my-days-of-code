@@ -16,7 +16,7 @@ export default function Profile() {
       <div className='profile'>
         <div className="profile-header">
           <h2>My Days Of Code Profile</h2>
-          <button onClick={navigateToDashboard} >Return to Dashboard</button>
+          <button onClick={navigateToDashboard} className="profile-button" >Return to Dashboard</button>
         </div>
         <div className='profile-info'>
             <img className='profile-image' src={profile?.avatar_url} alt={profile?.username}></img>
@@ -27,14 +27,17 @@ export default function Profile() {
               <p>Link to codewars profile</p>
             </div>
         </div>
-        <div className='profile-options-and-stats'>
+        <div className='profile-edit-options'>
           <div className="profile-header">
             <h2>Edit Account Details</h2>
           </div>
+          <p>Change Name:</p>
           <p>Change Username:</p>
-          <p>Change Profile Image:</p>
+          <p>Change Profile Image URL:</p>
           <p>Change Codewars Username:</p>
-          <div>Privacy</div>
+          <div className="profile-header">
+            <h2>Privacy</h2>
+          </div>
           <p>Make My Profile Public:</p>
         </div>
       </div>

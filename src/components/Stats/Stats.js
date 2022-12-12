@@ -21,6 +21,9 @@ function Stats({user, profile, codewarsData, setCodewarsData }) {
             <div className="api-stats">
                 <Codewars user={user} profile={profile} codewars_username={profile.codewars_username} codewarsData={codewarsData} setCodewarsData={setCodewarsData} />
             </div>
+            <div className="stats-header">
+                <h3>Search Users</h3>
+            </div>
         </div>
     );
 }
