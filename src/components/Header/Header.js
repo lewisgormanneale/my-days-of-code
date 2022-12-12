@@ -13,7 +13,7 @@ function Header() {
     return (
         <header className="header">
             <GiHamburgerMenu />
-            <img src="images/logo.png" alt="logo" className="logo"></img>
+            <img src="images/logo-white-transparent.png" alt="logo" className="logo"></img>
             <MdOutlineWbSunny />
         </header>
     );
