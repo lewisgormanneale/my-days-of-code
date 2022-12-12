@@ -20,3 +20,19 @@
     width: 86%;
     max-width: 962px;
 }
+
+.day-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+.chain {
+    background-color: #54a993;
+    width: 25%;
+    height: 20px;
+    z-index: 0;
+}

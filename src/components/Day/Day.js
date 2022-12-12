@@ -8,6 +8,7 @@ import CodewarsDay from '../CodewarsDay/CodewarsDay.js';
 function Day({ currentDay, updates, setUpdates, codewarsData }) {
   const [dailyCodewars, setDailyCodewars] = useState([])
   const [readOnly, setReadOnly] = useState(true)
+  const [deleteButtonStatus, setDeleteButtonStatus] = useState("unclicked")
   const [theme, setTheme] = useState("bubble")
 
   const currentDate = currentDay.date.slice(0, 10)
@@ -72,7 +73,7 @@ function Day({ currentDay, updates, setUpdates, codewarsData }) {
         />
         <div className='day-options-and-stats'>
           <div className='edit-and-delete-day'>
-            <button className="edit-button" onClick={toggleEdit}>Edit Day</button>
+            {/* <button className="edit-button" onClick={toggleEdit}>Edit Day</button> */}
             <button className="delete-button" onClick={deleteDay}>Delete Day</button>
           </div>
           <div className='day-stats'>

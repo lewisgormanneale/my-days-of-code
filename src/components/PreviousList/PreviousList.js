@@ -24,9 +24,23 @@ function PreviousList({ user, updates, setUpdates, codewarsData }) {
     return (
         <div className="previous-list">
             <h3>Your Previous Days Of Code</h3>
-            {days.map(function (currentDay) {
+            {days.map(function (currentDay, index, arr) {
+                const prevDay = arr[index - 1];
+                const timeDifference = new Date(prevDay?.date).getTime() - new Date(currentDay?.date).getTime()
+                const dayDifference = timeDifference / (1000 * 3600 * 24);
+                console.log(dayDifference)
+                if (dayDifference === 1) {
+                    return (
+                        <div className="day-container">
+                            <div className="chain"></div>
+                            <Day key={currentDay.id} currentDay={currentDay} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData}/>
+                        </div>
+                    )
+                }
                 return (
-                    <Day key={currentDay.id} currentDay={currentDay} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData}/>
+                    <div className="day-container">
+                        <Day key={currentDay.id} currentDay={currentDay} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData}/>
+                    </div>
                 )
             })}
         </div>
