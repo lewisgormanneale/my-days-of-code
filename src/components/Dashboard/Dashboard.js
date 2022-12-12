@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useAuth } from '../../contexts/auth.js'
 import { useProfile } from "../../contexts/useProfile.js"
-import { supabase } from "../../supabase.js"
 import './Dashboard.css'
 import Stats from "../Stats/Stats"
 import Today from "../Today/Today"
@@ -17,15 +16,17 @@ function Dashboard() {
     
     if (profile) {
       return (
-        <main className="main">
-            <div className="info">
+        <main className="dashboard">
+            <div className="side-panel">
                 <Stats user={user} profile={profile} codewarsData={codewarsData} setCodewarsData={setCodewarsData}/>
                 <ViewLoggedInUser profile={profile}/>
             </div>
-            <div className="days">
-                <Today profile={profile} updates={updates} setUpdates={setUpdates}  codewarsData={codewarsData} />
-                <PreviousList user={user} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData} />
-                <Footer />
+            <div className="main-panel">
+              <div className="days">
+                  <Today profile={profile} updates={updates} setUpdates={setUpdates}  codewarsData={codewarsData} />
+                  <PreviousList user={user} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData} />
+              </div>
+              <Footer />
             </div>
         </main>
     )}

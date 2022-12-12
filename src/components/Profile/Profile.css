@@ -5,7 +5,10 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: var(--secondary-background-color);
+    background-image: url(../../../public/images/canva-profile-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overscroll-behavior: contain;
 }
 
 .profile {
