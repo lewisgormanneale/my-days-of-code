@@ -1,7 +1,18 @@
 .share {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
     width: 25%;
+}
+.share > p {
+    margin: 0;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
 }

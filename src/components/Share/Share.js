@@ -14,7 +14,7 @@ function Share() {
     return (
         <div className="share">
             <p>Share Your Day</p>
-            <div>
+            <div className="share-buttons">
                 <FacebookShareButton 
                     url={"https://github.com/lewisgormanneale"}
                     quote={"Here's my days of code"}
