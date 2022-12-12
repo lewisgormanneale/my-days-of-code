@@ -6,6 +6,7 @@ import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import Header from './components/Header/Header';
 import Login from './components/Login/Login'
 import Dashboard from './components/Dashboard/Dashboard'
+import Profile from './components/Profile/Profile';
 
 function App() {
   return (
@@ -23,6 +24,14 @@ function App() {
               }
             />
             <Route path="/login" element={<Login />} />
+            <Route 
+              path='/profile'
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              }
+            />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </AuthProvider>

@@ -7,6 +7,10 @@ function ViewLoggedInUser({ profile }) {
     const navigate = useNavigate()
     const { signOut } = useAuth()
 
+    function navigateToProfile() {
+        navigate('/profile')
+    }
+
     async function handleSignOut() {
         await signOut()
         navigate('/login')
@@ -18,7 +22,7 @@ function ViewLoggedInUser({ profile }) {
             <img className='logged-in-user-image' src={profile?.avatar_url} alt={profile?.username}></img>
         </div>
         <div className='logged-in-user-options'>
-            <button>View Profile</button>
+            <button onClick={navigateToProfile}>View Profile</button>
             <button onClick={handleSignOut}>Sign Out</button>
         </div>
     </div>
