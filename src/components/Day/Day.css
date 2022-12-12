@@ -12,7 +12,7 @@
     color: var(--primary-font-color);
     background-color: var(--primary-background-color);
     border: 2px solid var(--secondary-background-color);
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .day-header {
@@ -23,7 +23,7 @@
     color: rgb(255, 255, 255);
     font-size: larger;
     font-weight: bold;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 0px 20px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     margin-bottom: 20px;

@@ -84,7 +84,10 @@ function Today({ profile, updates, setUpdates, codewarsData }) {
                 </div>
                 <ReactQuill theme="snow" value={postText} onChange={setPostText} required />
                 <div className="stats-and-submit">
-                    <CodewarsDay codewarsCompleted={dailyCodewars.length} />
+                    <div className="today-codewars">
+                        <CodewarsDay codewarsCompleted={dailyCodewars.length} />
+                        <p>Codewars Challenges Completed Today</p>
+                    </div>
                     <button className="submit-button" onClick={createDay}>Submit</button>
                 </div>
             </form>
