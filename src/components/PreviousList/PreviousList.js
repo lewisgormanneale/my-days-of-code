@@ -28,7 +28,6 @@ function PreviousList({ user, updates, setUpdates, codewarsData }) {
                 const prevDay = arr[index - 1];
                 const timeDifference = new Date(prevDay?.date).getTime() - new Date(currentDay?.date).getTime()
                 const dayDifference = timeDifference / (1000 * 3600 * 24);
-                console.log(dayDifference)
                 if (dayDifference === 1) {
                     return (
                         <div className="day-container">
@@ -37,8 +36,18 @@ function PreviousList({ user, updates, setUpdates, codewarsData }) {
                         </div>
                     )
                 }
+                const currentDate = new Date(currentDay?.date) 
+                const todaysDate = new Date();
+                if (currentDate.setHours(0,0,0,0) === todaysDate.setHours(0,0,0,0)) {
+                   return (
+                    <div className="day-container">
+                        <Day key={currentDay.id} currentDay={currentDay} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData}/>
+                    </div>
+                   ) 
+                }
                 return (
                     <div className="day-container">
+                        <div className="broken-chain"></div>
                         <Day key={currentDay.id} currentDay={currentDay} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData}/>
                     </div>
                 )

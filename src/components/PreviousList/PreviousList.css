@@ -36,3 +36,10 @@
     height: 20px;
     z-index: 0;
 }
+
+.broken-chain {
+    background-color: #b1361e;
+    width: 25%;
+    height: 20px;
+    z-index: 0;
+}
