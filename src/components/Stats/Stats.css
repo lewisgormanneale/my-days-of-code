@@ -40,3 +40,34 @@
     margin: 0;
     font-size: 12px;
 }
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    background-color: var(--secondary-background-color);
+    color: rgb(236, 236, 236);
+    border-radius: 20px;
+    padding: 0px 20px;
+}
+
+.stats-header {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    background-color: var(--secondary-background-color);
+    color: rgb(255, 255, 255);
+    font-size: larger;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 0px 20px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-bottom: 20px;
+}
+
+.stats-header-text > h3 {
+    padding: 0;
+    margin: 5px;
+}

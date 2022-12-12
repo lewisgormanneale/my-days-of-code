@@ -43,7 +43,7 @@ function Today({ profile, updates, setUpdates, codewarsData }) {
             <div className="welcome">
                 {profile &&
                     <div className="welcome-text">
-                        <h3>Hello {profile.username}! Today's date is {todaysDate}.</h3>
+                        <h3>Hello <span className="highlight">{profile.username}</span>! Today's date is <span className="highlight">{todaysDate}</span>.</h3>
                         <h3>Record Your Day Of Code Below...</h3>
                     </div>
                 }
@@ -60,6 +60,7 @@ function Today({ profile, updates, setUpdates, codewarsData }) {
                             min='1' 
                             max='1000'
                             value={postDay}
+                            required
                             onChange={(e) => {
                                 setPostDay(e.target.value);
                             }}
@@ -72,6 +73,7 @@ function Today({ profile, updates, setUpdates, codewarsData }) {
                             id="post-date"
                             className="post-date"
                             type='date'
+                            required
                             min="2022-01-01"
                             value={postDate}
                             onChange={(e) => {
@@ -80,7 +82,7 @@ function Today({ profile, updates, setUpdates, codewarsData }) {
                         ></input>
                     </div>
                 </div>
-                <ReactQuill theme="snow" value={postText} onChange={setPostText} />
+                <ReactQuill theme="snow" value={postText} onChange={setPostText} required />
                 <div className="stats-and-submit">
                     <CodewarsDay codewarsCompleted={dailyCodewars.length} />
                     <button className="submit-button" onClick={createDay}>Submit</button>
