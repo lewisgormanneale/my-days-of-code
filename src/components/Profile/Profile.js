@@ -24,10 +24,9 @@ export default function Profile() {
           </div>
         </div>
         <div className='profile-options-and-stats'>
-          <div className='edit-and-delete-day'>
-          </div>
-          <div className='day-stats'>
-          </div>
+          <p>Change Username:</p>
+          <p>Change Profile Image:</p>
+          <p>Change Codewars Username:</p>
         </div>
       </div>
       

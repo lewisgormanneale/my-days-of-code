@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/auth'
+import Footer from "../Footer/Footer.js"
 import './Login.css'
 
 export function Login() {
@@ -25,7 +26,8 @@ export function Login() {
   };
 
   return (
-    <main className='login-screen'>
+  <div className='login-screen'>
+    <main className='login-main'>
       <div className='login'>
         <h2>Welcome to My Days Of Code! Sign In Below:</h2>
         <button className='github-login-button' onClick={handleSubmit}>
@@ -37,6 +39,9 @@ export function Login() {
         </button>
       </div>
     </main>
+    <Footer />
+  </div>
+    
   )
 }
 
