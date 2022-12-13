@@ -1,29 +1,16 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { supabase } from '../../supabase.js';
 import ReactQuill from 'react-quill';
 import { toPng } from 'html-to-image';
-import Share from '../Share/Share.js';
 import "./Day.css"
 import CodewarsDay from '../CodewarsDay/CodewarsDay.js';
 
 function Day({ currentDay, updates, setUpdates, codewarsData }) {
-  const [dailyCodewars, setDailyCodewars] = useState([])
   const [readOnly, setReadOnly] = useState(true)
   const [deleteButtonStatus, setDeleteButtonStatus] = useState("unclicked")
   const [theme, setTheme] = useState("bubble")
 
   const currentDate = currentDay.date.slice(0, 10)
-
-  useEffect(() => {
-    function getDailyCodewars() {
-      for (let i = 0; i < codewarsData.length; i++) {
-        if (currentDate === codewarsData[i].completedAt.slice(0, 10)) {
-          setDailyCodewars([...dailyCodewars, codewarsData[i].date])
-        }
-      };
-    };
-    getDailyCodewars();
-  }, [codewarsData])
 
   async function toggleEdit() {
     setReadOnly(!readOnly)
@@ -79,7 +66,7 @@ function Day({ currentDay, updates, setUpdates, codewarsData }) {
       .catch((err) => {
         console.log(err)
       })
-  }, [ref])
+  }, [ref, currentDay.day])
 
   return (
     <div className="day" >
@@ -97,19 +84,14 @@ function Day({ currentDay, updates, setUpdates, codewarsData }) {
           <div className='hashtags-and-stats'>
             <p>#100DaysOfCode</p>
             <div className='day-stats'>
-            {dailyCodewars.length > 0 &&
-            <div className='codewars-container'>
-                <CodewarsDay codewarsCompleted={dailyCodewars.length} />
-                <p>Codewars Challenges Completed Today</p>
-            </div>
-            }
+                <CodewarsDay currentDate={currentDate} codewarsData={codewarsData}/>
             </div>
             <p>#MyDaysOfCode</p>
           </div>
         </div>
         <div className='day-options'>
           <div className='edit-and-delete-day'>
-            <button className="edit-button" onClick={toggleEdit}>Edit Day</button>
+            {/* <button className="edit-button" onClick={toggleEdit}>Edit Day</button> */}
             <button className="delete-button" onClick={deleteDay}>Delete Day</button>
           </div>
           <div className='share-day'>

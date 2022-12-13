@@ -1,5 +1,5 @@
 import React from "react";
-import Codewars from "../Codewars/Codewars.js";
+import CodewarsStats from "../CodewarsStats/CodewarsStats.js";
 import "./Stats.css"
 
 function Stats({user, profile, codewarsData, setCodewarsData }) {
@@ -19,7 +19,7 @@ function Stats({user, profile, codewarsData, setCodewarsData }) {
                 <h3>Connected Account Statistics</h3>
             </div>
             <div className="api-stats">
-                <Codewars user={user} profile={profile} codewars_username={profile.codewars_username} codewarsData={codewarsData} setCodewarsData={setCodewarsData} />
+                <CodewarsStats />
             </div>
             <div className="stats-header">
                 <h3>Search Users</h3>
