@@ -68,11 +68,12 @@ function Day({ currentDay, updates, setUpdates, codewarsData }) {
       return
     }
 
-    toPng(ref.current, { cacheBust: true, })
+    toPng(ref.current, { cacheBust: true, pixelRatio: 2 })
       .then((dataUrl) => {
         const link = document.createElement('a')
-        link.download = 'my-image-name.png'
+        link.download = `my-day-of-code-${currentDay.day}.png`
         link.href = dataUrl
+        console.log(dataUrl)
         link.click()
       })
       .catch((err) => {
@@ -85,6 +86,7 @@ function Day({ currentDay, updates, setUpdates, codewarsData }) {
         <div ref={ref} className="screenshot-container" >
           <div className="day-header">
               <p>Day #{currentDay.day}</p>
+              <img src="images/single-day-logo.png" alt="logo" className="day-logo"></img>
               <p>{currentDate}</p>
           </div>
           <ReactQuill
