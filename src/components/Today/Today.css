@@ -53,10 +53,6 @@
     margin: 5px;
 }
 
-.highlight {
-    color: var(--primary-font-color)
-}
-
 .today > form {
     display: flex;
     flex-direction: column;

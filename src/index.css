@@ -29,3 +29,7 @@ code {
   background-color: #18191a;
   color: white;
 }
+
+.highlight {
+  color: var(--primary-font-color)
+}

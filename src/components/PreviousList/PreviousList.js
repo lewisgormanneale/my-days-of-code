@@ -30,9 +30,9 @@ function PreviousList({ user, updates, setUpdates, codewarsData }) {
                 const dayDifference = timeDifference / (1000 * 3600 * 24);
                 if (dayDifference === 1) {
                     return (
-                        <div className="day-container">
+                        <div key={currentDay.id} className="day-container">
                             <div className="chain"></div>
-                            <Day key={currentDay.id} currentDay={currentDay} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData}/>
+                            <Day currentDay={currentDay} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData}/>
                         </div>
                     )
                 }
@@ -40,15 +40,15 @@ function PreviousList({ user, updates, setUpdates, codewarsData }) {
                 const todaysDate = new Date();
                 if (currentDate.setHours(0,0,0,0) === todaysDate.setHours(0,0,0,0)) {
                    return (
-                    <div className="day-container">
-                        <Day key={currentDay.id} currentDay={currentDay} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData}/>
+                    <div key={currentDay.id} className="day-container">
+                        <Day  currentDay={currentDay} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData}/>
                     </div>
                    ) 
                 }
                 return (
-                    <div className="day-container">
-                        <div className="broken-chain"></div>
-                        <Day key={currentDay.id} currentDay={currentDay} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData}/>
+                    <div key={currentDay.id} className="day-container">
+                        <div  className="broken-chain"></div>
+                        <Day currentDay={currentDay} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData}/>
                     </div>
                 )
             })}

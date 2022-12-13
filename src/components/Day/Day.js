@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { supabase } from '../../supabase.js';
 import ReactQuill from 'react-quill';
+import { toPng } from 'html-to-image';
 import Share from '../Share/Share.js';
 import "./Day.css"
 import CodewarsDay from '../CodewarsDay/CodewarsDay.js';
@@ -60,28 +61,59 @@ function Day({ currentDay, updates, setUpdates, codewarsData }) {
     setUpdates([...updates, data])
   };
 
+  const ref = useRef(null)
+
+  const onButtonClick = useCallback(() => {
+    if (ref.current === null) {
+      return
+    }
+
+    toPng(ref.current, { cacheBust: true, })
+      .then((dataUrl) => {
+        const link = document.createElement('a')
+        link.download = 'my-image-name.png'
+        link.href = dataUrl
+        link.click()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [ref])
+
   return (
-    <div className="day">
-        <div className="day-header">
-            <p>Day #{currentDay.day}</p>
-            <p>{currentDate}</p>
+    <div className="day" >
+        <div ref={ref} className="screenshot-container" >
+          <div className="day-header">
+              <p>Day #{currentDay.day}</p>
+              <p>{currentDate}</p>
+          </div>
+          <ReactQuill
+            value={currentDay.post}
+            readOnly={readOnly}
+            theme={theme}
+          />
+          <div className='hashtags-and-stats'>
+            <p>#100DaysOfCode</p>
+            <div className='day-stats'>
+            {dailyCodewars.length > 0 &&
+            <div className='codewars-container'>
+                <CodewarsDay codewarsCompleted={dailyCodewars.length} />
+                <p>Codewars Challenges Completed Today</p>
+            </div>
+            }
+            </div>
+            <p>#MyDaysOfCode</p>
+          </div>
         </div>
-        <ReactQuill
-          value={currentDay.post}
-          readOnly={readOnly}
-          theme={theme}
-        />
-        <div className='day-options-and-stats'>
+        <div className='day-options'>
           <div className='edit-and-delete-day'>
-            {/* <button className="edit-button" onClick={toggleEdit}>Edit Day</button> */}
+            <button className="edit-button" onClick={toggleEdit}>Edit Day</button>
             <button className="delete-button" onClick={deleteDay}>Delete Day</button>
           </div>
-          <div className='day-stats'>
-            <CodewarsDay codewarsCompleted={dailyCodewars.length} />
+          <div className='share-day'>
+            <button className="share-button" onClick={onButtonClick}>Share</button>
           </div>
-          <Share />
         </div>
-        
     </div>
   )
 }

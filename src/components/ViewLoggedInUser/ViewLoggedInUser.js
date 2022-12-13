@@ -19,7 +19,7 @@ function ViewLoggedInUser({ profile }) {
   return (
     <div className='logged-in-user'>
         <div className='logged-in-user-name'>
-            <p>Logged in as {profile.username}</p>
+            <p>Logged in as <span className='highlight'>{profile.username}</span></p>
         </div>
         <div className='user-image-and-options'>
             <div className='image-container'>

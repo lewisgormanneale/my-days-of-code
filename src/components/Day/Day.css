@@ -5,7 +5,6 @@
     align-items: center;
     width: 90%;
     max-width: 800px;
-    padding: 20px;
     padding-bottom: 0px;
     margin: 10px;
     box-sizing: border-box;
@@ -14,6 +13,18 @@
     border: 1.5px solid #3a3c3e;
     border-radius: 10px;
     z-index: 2;
+}
+
+.screenshot-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-background-color);
+    box-sizing: border-box;
+    padding-top: 20px;
+    width: 100%;
+    margin: 0;
 }
 
 .day-header {
@@ -25,6 +36,7 @@
     font-size: larger;
     font-weight: bold;
     border-radius: 10px;
+    border: 1.5px solid #3a3c3e;
     padding: 0px 20px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     margin-bottom: 20px;
@@ -42,8 +54,8 @@
     width: 90%;
 }
 
-.day > .quill {
-    background-color: white;
+.screenshot-container > .quill {
+    background-color: rgb(255, 255, 255);
     color: black;
     font-family: 'Exo 2', sans-serif;
     min-width: 90%;
@@ -53,30 +65,62 @@
     padding: 20px;
 }
 
-.day > .quill > .ql-container > .ql-editor {
+.screenshot-container > .quill > .ql-container > .ql-editor {
     min-height: 80px;
+    font-size: 14px;
 }
 
-.day-options-and-stats {
+.hashtags-and-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 70px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.day-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.codewars-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.codewars-container > p {
+    font-size: 10px;
+    margin: 0;
+    margin-top: 5px;
+}
+
+.day-options {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 95%;
-    height: 100px;
+    height: 30px;
+    padding-bottom: 20px;
 }
 
 .edit-and-delete-day {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
     height: 100%;
     width: 25%;
 }
 
-.edit-button, .delete-button {
+.edit-button, .delete-button, .share-button {
     width: 50%;
-    height: 33%;
+    height: 100%;
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -100,14 +144,21 @@
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.edit-button:hover, .delete-button:hover {
-    transition: all .1s ease;
-    box-shadow: 0 0 0 0 #fff, 0 0 0 2px #1de9b6;
+.share-day {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    width: 25%;
 }
 
-.day-stats {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+.share-button {
+    background-color: var(--primary-button-color);
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.edit-button:hover, .delete-button:hover, .share-button:hover {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 2px #1de9b6;
 }
