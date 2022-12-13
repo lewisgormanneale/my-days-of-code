@@ -73,6 +73,7 @@
 
 .screenshot-container > .quill > .ql-container > .ql-editor {
     min-height: 80px;
+    max-height: 500px;
     font-size: 16px;
 }
 

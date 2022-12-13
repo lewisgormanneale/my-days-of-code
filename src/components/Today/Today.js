@@ -10,18 +10,6 @@ function Today({ profile, updates, setUpdates, codewarsData }) {
     const [postDay, setPostDay] = useState(1);
     const [postDate, setPostDate] = useState(todaysDate);
     const [postText, setPostText] = useState("");
-    const [dailyCodewars, setDailyCodewars] = useState([])
-
-    useEffect(() => {
-        function getDailyCodewars() {
-        for (let i = 0; i < codewarsData.length; i++) {
-            if (todaysDate === codewarsData[i].completedAt.slice(0, 10)) {
-            setDailyCodewars([...dailyCodewars, codewarsData[i].date])
-            }
-        };
-        };
-        getDailyCodewars();
-    }, [codewarsData])
 
     async function createDay(e) {
         e.preventDefault()
@@ -43,7 +31,7 @@ function Today({ profile, updates, setUpdates, codewarsData }) {
             <div className="welcome">
                 {profile &&
                     <div className="welcome-text">
-                        <h3>Hello <span className="highlight">{profile.username}</span>! Today's date is <span className="highlight">{todaysDate}</span>.</h3>
+                        <h3>Hello <span className="highlight">{profile.full_name}</span>! Today's date is <span className="highlight">{todaysDate}</span>.</h3>
                         <h3>Record Your Day Of Code Below...</h3>
                     </div>
                 }
@@ -85,8 +73,7 @@ function Today({ profile, updates, setUpdates, codewarsData }) {
                 <ReactQuill theme="snow" value={postText} onChange={setPostText} required />
                 <div className="stats-and-submit">
                     <div className="today-codewars">
-                        <CodewarsDay codewarsCompleted={dailyCodewars.length} />
-                        <p>Codewars Challenges Completed Today</p>
+                        <CodewarsDay currentDate={todaysDate} codewarsData={codewarsData} />
                     </div>
                     <button className="submit-button" onClick={createDay}>Submit</button>
                 </div>
