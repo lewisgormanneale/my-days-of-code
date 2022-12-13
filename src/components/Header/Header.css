@@ -19,4 +19,5 @@
 
 .logo {
     height: 8vh;
+    max-height: 60px;
 }
