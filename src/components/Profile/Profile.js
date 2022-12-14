@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useProfile } from '../../contexts/useProfile'
+import { supabase } from '../../supabase'
 import './Profile.css'
 
 export default function Profile() {
@@ -10,6 +11,18 @@ export default function Profile() {
   function navigateToDashboard() {
     navigate('/')
   }
+
+  // async function editCodewarsUsername(e) {
+  //   e.preventDefault()
+  //   let { data, error } = await supabase
+  //       .from('profiles')
+  //       .update({ name: 'Australia' })
+  //       .eq('id', currentDay.id)
+  //   if (error) {
+  //     console.log(error)
+  //   }
+  //   setUpdates([...updates, data])
+  // };
 
   return (
     <div className='profile-screen'>

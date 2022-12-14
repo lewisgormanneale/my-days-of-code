@@ -8,11 +8,13 @@ export default function CodewarsDay( { currentDate, codewarsData }) {
   useEffect(() => {
     function getDailyCodewars() {
       setCodewarsCompletedToday(0)
+      let count = 0
       for (let i = 0; i < codewarsData?.length; i++) {
         if (currentDate === codewarsData[i]?.completedAt.slice(0, 10)) {
-          setCodewarsCompletedToday(codewarsCompletedToday + 1)
+          count++
         }
       };
+      setCodewarsCompletedToday(count)
     };
     getDailyCodewars();
   }, [codewarsData, currentDate])
