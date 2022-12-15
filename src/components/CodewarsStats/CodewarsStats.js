@@ -1,10 +1,10 @@
 import React from "react";
 import "./CodewarsStats.css"
-import { useProfile } from "../../contexts/useProfile";
+import { useAuth } from "../../contexts/auth";
 import { useCodewarsData } from "../../contexts/useCodewarsData";
 
 function CodewarsStats() {
-  const [profile] = useProfile();
+  const { profile } = useAuth()
   const [codewarsData] = useCodewarsData();
 
   if (profile.codewars_username) {

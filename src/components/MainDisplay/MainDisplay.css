@@ -1,5 +1,15 @@
+.main-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 75vw;
+    height: 100vh;
+}
+/* 
 .dashboard {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
@@ -9,31 +19,11 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    margin-top: 10vh;
-    height: 90vh;
+    height: 100vh;
     overflow-y: scroll;
     background-color: #18191a;
     /* background-image: url(../../../public/images/canva-background.png);
     background-repeat: no-repeat;
     background-size: cover;
     overscroll-behavior: contain; */
-}
-
-.days {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    height: 90vh;
-    overflow-y: scroll;
-    overscroll-behavior: contain;
-}
-
-.side-panel {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-}
+} */

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ReactQuill from 'react-quill';
 import { supabase } from "../../supabase";
+import { useAuth } from "../../contexts/AuthContext";
 import "./Today.css"
 import 'react-quill/dist/quill.snow.css';
 import CodewarsDay from "../CodewarsDay/CodewarsDay";
 
-function Today({ profile, updates, setUpdates, codewarsData }) {
+function Today({ codewarsData }) {
+    const { profile, updates, setUpdates } = useAuth()
     const todaysDate = new Date().toISOString().substr(0, 10);
     const [postDay, setPostDay] = useState(1);
     const [postDate, setPostDate] = useState(todaysDate);

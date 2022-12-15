@@ -1,63 +1,30 @@
-import React from 'react'
+import { useState } from "react"
+import { useAuth } from '../../contexts/AuthContext.js'
+import { useCodewarsData } from "../../hooks/useCodewarsData.js"
 import { useNavigate } from 'react-router-dom'
-import { useProfile } from '../../contexts/useProfile'
-import { supabase } from '../../supabase'
 import './Profile.css'
+import Today from "../Today/Today"
+import PreviousList from "../PreviousList/PreviousList"
+import Footer from "../Footer/Footer.js"
+import { useDays } from "../../hooks/useDays.js"
 
-export default function Profile() {
-  const navigate = useNavigate()
-  const [profile] = useProfile();
-
-  function navigateToDashboard() {
-    navigate('/')
+function Profile() {
+    const { user, profile, updates, setUpdates } = useAuth()
+    const [days] = useDays(user, updates);
+    const [codewarsData] = useCodewarsData();
+    const navigate = useNavigate()
+    
+    if (profile) {
+      return (
+            <div className="profile">
+                <Today profile={profile} updates={updates} setUpdates={setUpdates}  codewarsData={codewarsData} />
+                <PreviousList user={user} days={days} updates={updates} setUpdates={setUpdates} codewarsData={codewarsData} />
+                <Footer />
+            </div>
+    )} else {
+      navigate('/')
+    }
+    
   }
 
-  // async function editCodewarsUsername(e) {
-  //   e.preventDefault()
-  //   let { data, error } = await supabase
-  //       .from('profiles')
-  //       .update({ name: 'Australia' })
-  //       .eq('id', currentDay.id)
-  //   if (error) {
-  //     console.log(error)
-  //   }
-  //   setUpdates([...updates, data])
-  // };
-
-  return (
-    <div className='profile-screen'>
-      <div className='profile'>
-        <div className="profile-header">
-          <h2>My Days Of Code Profile</h2>
-          <button onClick={navigateToDashboard} className="profile-button" >Return to Dashboard</button>
-        </div>
-        <div className='profile-info'>
-            <img className='profile-image' src={profile?.avatar_url} alt={profile?.username}></img>
-            <div>
-              <h3>Name: {profile?.full_name}</h3>
-              <h3>GitHub Username: {profile?.username}</h3>
-              <p><a href={`https://github.com/` + profile?.username}>View GitHub Profile</a></p>
-              <p><a href={`https://www.codewars.com/users/` + profile?.codewars_username}>View Codewars Profile</a></p>
-              <p>View Public My Days Of Code Profile (Coming Soon)</p>
-            </div>
-        </div>
-        <div className='profile-edit-options'>
-          <div className="profile-header">
-            <h2>Edit Account Details</h2>
-          </div>
-          <p>Change Name:</p>
-          <p>Change Profile Image URL:</p>
-          <p>Change Codewars Username:</p>
-          <div className="profile-header">
-            <h2>Privacy</h2>
-          </div>
-          <div className='privacy-field'>
-            <label for="profile-visibility">Let Anyone View My Days Of Code Profile (Coming Soon)</label>
-            <input type="checkbox" id="profile-visibility" name="profile-visibility" />
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  )
-}
+export default Profile;

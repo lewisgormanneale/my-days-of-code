@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
-import { useProfile } from './useProfile'
+import { useAuth } from "../contexts/AuthContext";
 
 export const useCodewarsData = () => {
-    const [profile] = useProfile();
+    const { profile } = useAuth()
     const [codewarsData, setCodewarsData] = useState({});
 
     useEffect(() => {

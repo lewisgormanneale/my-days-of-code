@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, createContext } from 'react'
 import { supabase } from '../supabase'
-import { useLocalStorage } from "./useLocalStorage";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const AuthContext = createContext()
 
@@ -10,7 +10,9 @@ export const useAuth = () => {
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useLocalStorage("user", null);
-    const [loading, setLoading] = useState(false)
+    const [profile, setProfile] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [updates, setUpdates] = useState([]);
 
     useEffect(() => {
         async function getSession() {
@@ -35,13 +37,32 @@ export function AuthProvider({ children }) {
         return () => {
           listener?.subscription.unsubscribe();
         };
-      }, [])
+    }, [])
+
+    useEffect(() => {
+      async function getProfile() {
+          if (user) {
+          const { data, error } = await supabase
+              .from('profiles')
+              .select('id, full_name, username, codewars_username, avatar_url')
+          if (error) {
+              console.log(error)
+          } else {
+              setProfile(data[0]);
+          };
+          };
+      };
+      getProfile();
+  }, [user])
     
     const value = {
         signUp: async (data) => await supabase.auth.signUp(data),
         signInWithGitHub: async (data) => await supabase.auth.signInWithOAuth(data),
         signOut: async () => await supabase.auth.signOut(),
-        user
+        user,
+        profile,
+        updates,
+        setUpdates
     };
   
     return (
