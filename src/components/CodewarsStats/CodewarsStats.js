@@ -1,7 +1,7 @@
 import React from "react";
 import "./CodewarsStats.css";
-import { useAuth } from "../../contexts/auth";
-import { useCodewarsData } from "../../contexts/useCodewarsData";
+import { useAuth } from "../../contexts/AuthContext";
+import { useCodewarsData } from "../../hooks/useCodewarsData";
 
 function CodewarsStats() {
   const { profile } = useAuth();

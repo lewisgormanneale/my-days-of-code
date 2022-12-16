@@ -3,36 +3,32 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 10vh;
   width: 75vw;
-  height: 90vh;
+  height: 100vh;
   overflow-y: scroll;
   background-color: #18191a;
-  /* background-image: url(../../../public/images/canva-profile-background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    overscroll-behavior: contain; */
 }
-/* 
-.profile {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 1200px;
-    width: 80%;
-    padding: 20px;
-    top: 10vh;
-    padding-bottom: 0px;
-    margin: 40px;
-    box-sizing: border-box;
-    color: var(--primary-font-color);
-    background-color: var(--primary-background-color);
-    border-radius: 10px;
-    border: 1.5px solid #3a3c3e;
-} */
 
-.profile-header {
+.settings-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  min-height: 95vh;
+  width: 80%;
+  padding: 20px;
+  top: 10vh;
+  padding-bottom: 0px;
+  margin: 40px;
+  box-sizing: border-box;
+  color: var(--primary-font-color);
+  background-color: var(--primary-background-color);
+  border-radius: 10px;
+  border: 1.5px solid #3a3c3e;
+}
+
+.settings-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,29 +41,7 @@
   padding: 0px 20px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
-  margin-bottom: 20px;
   border: 1.5px solid #3a3c3e;
-}
-
-.profile-button {
-  display: inline-block;
-  outline: none;
-  cursor: pointer;
-  font-weight: 600;
-  border-radius: 3px;
-  padding: 12px 24px;
-  border: 0;
-  color: white;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
-  background-color: var(--primary-button-color);
-  line-height: 1.15;
-  font-size: 16px;
-}
-
-.profile-button:hover {
-  transition: all 0.1s ease;
-  box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
 }
 
 .profile-info {

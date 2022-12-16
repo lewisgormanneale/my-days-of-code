@@ -9,15 +9,11 @@
   box-sizing: border-box;
   background-color: var(--primary-background-color);
   padding: 20px;
+  transition: ease all 0.3s;
 }
 
-.logo-container {
-  display: flex;
-  width: 25vw;
-  align-items: center;
-}
-
-.logo {
-  max-width: 300px;
-  max-height: 100px;
+@media (max-width: 800px) {
+  .sidebar {
+    width: 10vw;
+  }
 }

@@ -5,3 +5,9 @@
   width: 75vw;
   height: 100vh;
 }
+
+@media (max-width: 800px) {
+  .main-display {
+    width: 90vw;
+  }
+}

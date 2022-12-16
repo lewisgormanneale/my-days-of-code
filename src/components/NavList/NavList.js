@@ -10,7 +10,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext.js";
 import "./NavList.css";
 
-export default function NavList() {
+export default function NavList({ matches }) {
   const navigate = useNavigate();
   const { signOut } = useAuth();
 

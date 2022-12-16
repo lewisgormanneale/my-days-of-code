@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { supabase } from "../../supabase";
+import Footer from "../Footer/Footer";
 import "./Settings.css";
 
 export default function Settings() {
-  const navigate = useNavigate();
   const { profile, updates, setUpdates } = useAuth();
   const [newCodewarsUsername, setNewCodewarsUsername] = useState(
     profile.codewars_username
   );
-
-  function navigateToMyDays() {
-    navigate("/profile");
-  }
 
   async function editCodewarsUsername(e) {
     e.preventDefault();
@@ -29,12 +24,9 @@ export default function Settings() {
 
   return (
     <div className="settings-page">
-      <div className="profile">
-        <div className="profile-header">
+      <div className="settings-window">
+        <div className="settings-header">
           <h2>Settings</h2>
-          <button onClick={navigateToMyDays} className="profile-button">
-            Return to My Days
-          </button>
         </div>
         <div className="profile-info">
           <img
@@ -63,7 +55,7 @@ export default function Settings() {
           </div>
         </div>
         <div className="profile-edit-options">
-          <div className="profile-header">
+          <div className="settings-header">
             <h2>Edit Account Details</h2>
           </div>
           <p>Change Name:</p>
@@ -82,7 +74,7 @@ export default function Settings() {
           <button onClick={editCodewarsUsername}>
             Change Codewars Username
           </button>
-          <div className="profile-header">
+          <div className="settings-header">
             <h2>Privacy</h2>
           </div>
           <div className="privacy-field">
@@ -97,6 +89,7 @@ export default function Settings() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
