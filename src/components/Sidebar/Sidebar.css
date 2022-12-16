@@ -1,57 +1,58 @@
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    height:100vh;
-    width: 25vw;
-    overflow-y: scroll;
-    text-align: center;
-    box-sizing: border-box;
-    background-color: var(--primary-background-color);
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 25vw;
+  overflow-y: scroll;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: var(--primary-background-color);
+  padding: 20px;
 }
 
 .logo-and-profile-picture {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .logged-in-user-image {
-    height: 8vh;
+  height: 8vh;
 }
 
 .image-container {
-    box-sizing: border-box;
-    width: 40%;
+  box-sizing: border-box;
+  width: 40%;
 }
 
 .logo {
-    max-width: 300px;
-    max-height: 100px;
+  max-width: 300px;
+  max-height: 100px;
 }
 
 .sidebar-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    cursor: pointer;
-    gap: 8px;
-    width: 90%;
-    background-color: var(--secondary-background-color);
-    color: rgb(255, 255, 255);
-    font-size: larger;
-    font-weight: bold;
-    border-radius: 10px;
-    border: 1.5px solid #3a3c3e;
-    padding: 0px 20px;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    margin-bottom: 8px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+  width: 90%;
+  background-color: var(--secondary-background-color);
+  color: rgb(255, 255, 255);
+  font-size: larger;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 1.5px solid #3a3c3e;
+  padding: 0px 20px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  margin-bottom: 8px;
+  margin-top: 10px;
 }
 
 .sidebar-header > h3 {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .sidebar-header:hover {
-    transition: all .1s ease;
-    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+  transition: all 0.1s ease;
+  box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
 }

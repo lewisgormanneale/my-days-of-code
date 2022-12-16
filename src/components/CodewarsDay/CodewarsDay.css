@@ -1,59 +1,61 @@
 .codewars-day {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.codewars-day> p {
-    font-size: 10px;
-    margin: 0;
-    margin-top: 5px;
+.codewars-day > p {
+  font-size: 10px;
+  margin: 0;
+  margin-top: 5px;
 }
 
 .codewars-day-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: 800;
-    color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    width: 40px;   
-    height: 40px;
-    background-image: url("../../../public/images/codewars-logo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  width: 40px;
+  height: 40px;
+  background-image: url("../../../public/images/codewars-logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .today-codewars > .codewars-day {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    font-size: large;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: large;
 }
 
 .today-codewars > .codewars-day > p {
-    gap: 10px;
-    font-weight: 600;
-    font-size: large;
-    margin: 0;
+  gap: 10px;
+  font-weight: 600;
+  font-size: large;
+  margin: 0;
 }
 
 .today-codewars > .codewars-day > .codewars-day-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: 800;
-    color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    width: 40px;   
-    height: 40px;
-    background-image: url("../../../public/images/codewars-logo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  width: 40px;
+  height: 40px;
+  background-image: url("../../../public/images/codewars-logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }

@@ -1,105 +1,91 @@
-import React, { useState, useRef, useCallback } from 'react';
-import { supabase } from '../../supabase.js';
-import ReactQuill from 'react-quill';
-import { toPng } from 'html-to-image';
-import "./Day.css"
-import CodewarsDay from '../CodewarsDay/CodewarsDay.js';
+import React, { useState, useRef, useCallback } from "react";
+import { supabase } from "../../supabase.js";
+import ReactQuill from "react-quill";
+import { toPng } from "html-to-image";
+import "./Day.css";
+import CodewarsDay from "../CodewarsDay/CodewarsDay.js";
 
 function Day({ currentDay, updates, setUpdates, codewarsData }) {
-  const [readOnly, setReadOnly] = useState(true)
-  const [deleteButtonStatus, setDeleteButtonStatus] = useState("unclicked")
-  const [theme, setTheme] = useState("bubble")
+  const currentDate = currentDay.date.slice(0, 10);
+  const ref = useRef(null);
+  const [deleteButtonMessage, setDeleteButtonMessage] = useState("Delete Day");
 
-  const currentDate = currentDay.date.slice(0, 10)
-
-  async function toggleEdit() {
-    setReadOnly(!readOnly)
-    if (theme === "bubble") {
-      setTheme("snow")
-    } else {
-      setTheme("bubble")
+  function confirmDelete(e) {
+    if (deleteButtonMessage === "Delete Day") {
+      setDeleteButtonMessage("Are You Sure?");
+    } else if (deleteButtonMessage === "Are You Sure?") {
+      deleteDay(e);
     }
-    if (readOnly === false) {
-      editDay();
-    }
-  }
-
-  async function editDay(e) {
-    e.preventDefault()
-    let { data, error } = await supabase
-    //     .from('days')
-    //     .update({ name: 'Australia' })
-    //     .eq('id', currentDay.id)
-    if (error) {
-      console.log(error)
-    }
-    setUpdates([...updates, data])
   }
 
   async function deleteDay(e) {
-    e.preventDefault()
+    e.preventDefault();
     let { data, error } = await supabase
-        .from('days')
-        .delete()
-        .eq('id', currentDay.id)
+      .from("days")
+      .delete()
+      .eq("id", currentDay.id);
     if (error) {
-      console.log(error)
+      console.log(error);
     }
-    setUpdates([...updates, data])
-  };
-
-  const ref = useRef(null)
+    setUpdates([...updates, data]);
+  }
 
   const onButtonClick = useCallback(() => {
     if (ref.current === null) {
-      return
+      return;
     }
 
     toPng(ref.current, { cacheBust: true, pixelRatio: 2 })
       .then((dataUrl) => {
-        const link = document.createElement('a')
-        link.download = `my-day-of-code-${currentDay.day}.png`
-        link.href = dataUrl
-        console.log(dataUrl)
-        link.click()
+        const link = document.createElement("a");
+        link.download = `my-day-of-code-${currentDay.day}.png`;
+        link.href = dataUrl;
+        console.log(dataUrl);
+        link.click();
       })
       .catch((err) => {
-        console.log(err)
-      })
-  }, [ref, currentDay.day])
+        console.log(err);
+      });
+  }, [ref, currentDay.day]);
 
   return (
-    <div className="day" >
-        <div ref={ref} className="screenshot-container" >
-          <div className="day-header">
-              <p>Day #{currentDay.day}</p>
-              <img src="images/single-day-logo.png" alt="logo" className="day-logo"></img>
-              <p>{currentDate}</p>
-          </div>
-          <ReactQuill
-            value={currentDay.post}
-            readOnly={readOnly}
-            theme={theme}
-          />
-          <div className='hashtags-and-stats'>
-            <p>#100DaysOfCode</p>
-            <div className='day-stats'>
-                <CodewarsDay currentDate={currentDate} codewarsData={codewarsData}/>
-            </div>
-            <p>#MyDaysOfCode</p>
-          </div>
+    <div className="day">
+      <div ref={ref} className="screenshot-container">
+        <div className="day-header">
+          <p>Day #{currentDay.day}</p>
+          <img
+            src="images/single-day-logo.png"
+            alt="logo"
+            className="day-logo"
+          ></img>
+          <p>{currentDate}</p>
         </div>
-        <div className='day-options'>
-          <div className='edit-and-delete-day'>
-            {/* <button className="edit-button" onClick={toggleEdit}>Edit Day</button> */}
-            <button className="delete-button" onClick={deleteDay}>Delete Day</button>
+        <ReactQuill value={currentDay.post} readOnly="true" theme="bubble" />
+        <div className="hashtags-and-stats">
+          <p>#100DaysOfCode</p>
+          <div className="day-stats">
+            <CodewarsDay
+              currentDate={currentDate}
+              codewarsData={codewarsData}
+            />
           </div>
-          <div className='share-day'>
-            <button className="share-button" onClick={onButtonClick}>Share</button>
-          </div>
+          <p>#MyDaysOfCode</p>
         </div>
+      </div>
+      <div className="day-options">
+        <div className="edit-and-delete-day">
+          <button className="delete-button" onClick={confirmDelete}>
+            {deleteButtonMessage}
+          </button>
+        </div>
+        <div className="share-day">
+          <button className="share-button" onClick={onButtonClick}>
+            Share
+          </button>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
 export default Day;

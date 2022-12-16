@@ -1,158 +1,166 @@
 .day {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    max-width: 800px;
-    padding-bottom: 0px;
-    margin: 10px;
-    box-sizing: border-box;
-    color: var(--primary-font-color);
-    background-color: var(--primary-background-color);
-    border: 1.5px solid #3a3c3e;
-    border-radius: 10px;
-    z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+  padding-bottom: 0px;
+  margin: 10px;
+  box-sizing: border-box;
+  color: var(--primary-font-color);
+  background-color: var(--primary-background-color);
+  border: 1.5px solid #3a3c3e;
+  border-radius: 10px;
+  z-index: 2;
 }
 
 .screenshot-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--primary-background-color);
-    box-sizing: border-box;
-    padding-top: 20px;
-    width: 100%;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-background-color);
+  box-sizing: border-box;
+  padding-top: 20px;
+  width: 100%;
+  margin: 0;
 }
 
 .day-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    background-color: var(--secondary-background-color);
-    color: rgb(255, 255, 255);
-    font-size: larger;
-    font-weight: bold;
-    border-radius: 10px;
-    border: 1.5px solid #3a3c3e;
-    padding: 0px 20px;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    margin-bottom: 20px;
-    height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  background-color: var(--secondary-background-color);
+  color: rgb(255, 255, 255);
+  font-size: larger;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 1.5px solid #3a3c3e;
+  padding: 0px 20px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  margin-bottom: 20px;
+  height: 50px;
 }
 
 .day-logo {
-    height: 40px;
+  height: 40px;
 }
 
 .day-text {
-    display: flex;
-    justify-content: flex-start;
-    text-align: left;
-    background-color: whitesmoke;
-    color: black;
-    border-radius: 20px;
-    padding: 20px;
-    margin: 20px;
-    width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+  width: 90%;
 }
 
 .screenshot-container > .quill {
-    background-color: rgb(255, 255, 255);
-    color: black;
-    font-family: 'Exo 2', sans-serif;
-    min-width: 90%;
-    max-width: 90%;
-    min-height: 80px;
-    border-radius: 10px;
-    padding: 20px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  font-family: "Exo 2", sans-serif;
+  min-width: 90%;
+  max-width: 90%;
+  min-height: 80px;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .screenshot-container > .quill > .ql-container > .ql-editor {
-    min-height: 80px;
-    max-height: 500px;
-    font-size: 16px;
+  min-height: 80px;
+  max-height: 500px;
+  font-size: 16px;
 }
 
 .hashtags-and-stats {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    height: 70px;
-    padding: 0px;
-    margin: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 70px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .day-stats {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }
 
 .day-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 95%;
-    height: 30px;
-    padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  height: 30px;
+  padding-bottom: 20px;
 }
 
 .edit-and-delete-day {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 5px;
-    height: 100%;
-    width: 25%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  width: 25%;
 }
 
-.edit-button, .delete-button, .share-button {
-    width: 50%;
-    height: 100%;
-    display: inline-block;
-    outline: none;
-    cursor: pointer;
-    font-weight: 600;
-    border-radius: 3px;
-    padding: 6px 6px;
-    border: 0;
-    line-height: 1.15;
-    font-size: 12px;
+.edit-button,
+.delete-button,
+.share-button {
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 6px 6px;
+  border: 0;
+  line-height: 1.15;
+  font-size: 0.8rem;
 }
 
 .edit-button {
-    background-color: var(--primary-button-color);
-    color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  background-color: var(--primary-button-color);
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .delete-button {
-    background-color: #b1361e;
-    color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  background-color: #b1361e;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .share-day {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
-    width: 25%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 25%;
 }
 
 .share-button {
-    background-color: var(--primary-button-color);
-    color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  background-color: var(--primary-button-color);
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
-.edit-button:hover, .delete-button:hover, .share-button:hover {
-    transition: all .1s ease;
-    box-shadow: 0 0 0 0 #fff, 0 0 0 2px #1de9b6;
+.edit-button:hover,
+.delete-button:hover,
+.share-button:hover {
+  transition: all 0.1s ease;
+  box-shadow: 0 0 0 0 #fff, 0 0 0 2px #1de9b6;
 }
