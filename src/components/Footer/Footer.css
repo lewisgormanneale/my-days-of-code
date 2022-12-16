@@ -11,21 +11,21 @@
 }
 
 /* unvisited link */
-a:link {
+.footer > a:link {
   color: red;
 }
 
 /* visited link */
-a:visited {
+.footer > a:visited {
   color: rgb(0, 165, 0);
 }
 
 /* mouse over link */
-a:hover {
+.footer > a:hover {
   color: rgb(159, 234, 255);
 }
 
 /* selected link */
-a:active {
+.footer > a:active {
   color: rgb(255, 255, 255);
 }

@@ -15,7 +15,7 @@ export function FrontPage() {
     } else {
       navigate("/");
     }
-  }, [user]);
+  }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="login-screen">

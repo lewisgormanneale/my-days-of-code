@@ -9,8 +9,8 @@ export const useAuth = () => {
 };
 
 export function AuthProvider({ children }) {
-  const [session, setSession] = useState(null);
   const [user, setUser] = useLocalStorage("user", null);
+  const [session, setSession] = useState(null);
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(false);
   const [updates, setUpdates] = useState([]);
@@ -27,7 +27,7 @@ export function AuthProvider({ children }) {
       setUser(session?.user ?? null);
       setLoading(false);
     });
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     async function getProfile() {
