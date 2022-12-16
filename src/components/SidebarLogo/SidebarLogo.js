@@ -6,7 +6,7 @@ export default function SidebarLogo() {
     <picture className="logo-container">
       <source
         media="(min-width:800px)"
-        srcset="images/logo-white-colored-transparent.png"
+        srcSet="images/logo-white-colored-transparent.png"
       />
       <img src="images/square-logo.png" alt="logo" className="logo" />
     </picture>

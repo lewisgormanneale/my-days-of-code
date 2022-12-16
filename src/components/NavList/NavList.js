@@ -24,32 +24,32 @@ export default function NavList({ matches }) {
       <ul>
         <NavLink to="profile">
           <li className="navbar-list-item">
-            <MdOutlineCalendarToday />
-            <p>My Days</p>
+            <MdOutlineCalendarToday className="navbar-icon" />
+            <p className="navbar-text">My Days</p>
           </li>
         </NavLink>
         <NavLink to="statistics">
           <li className="navbar-list-item">
-            <MdOutlineQueryStats />
-            <p>Statistics</p>
+            <MdOutlineQueryStats className="navbar-icon" />
+            <p className="navbar-text">Statistics</p>
           </li>
         </NavLink>
         <NavLink to="search">
           <li className="navbar-list-item">
-            <MdOutlinePersonSearch />
-            <p>Search Users</p>
+            <MdOutlinePersonSearch className="navbar-icon" />
+            <p className="navbar-text">Search Users</p>
           </li>
         </NavLink>
         <NavLink to="settings">
           <li className="navbar-list-item">
-            <MdOutlineSettings />
-            <p>Settings</p>
+            <MdOutlineSettings className="navbar-icon" />
+            <p className="navbar-text">Settings</p>
           </li>
         </NavLink>
         <NavLink onClick={handleSignOut} to="/" end>
           <li className="navbar-list-item">
-            <MdOutlineLogout />
-            <p>Log Out</p>
+            <MdOutlineLogout className="navbar-icon" />
+            <p className="navbar-text">Log Out</p>
           </li>
         </NavLink>
       </ul>

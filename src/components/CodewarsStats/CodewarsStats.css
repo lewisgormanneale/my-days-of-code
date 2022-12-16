@@ -1,3 +1,9 @@
-.codewars-completed {
-  margin-bottom: 12px;
+.codewars-stats {
+  margin: 0;
+  padding: 0;
+}
+
+.codewars-stats-text {
+  margin: 0;
+  padding: 0;
 }

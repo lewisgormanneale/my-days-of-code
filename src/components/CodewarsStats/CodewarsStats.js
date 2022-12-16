@@ -9,8 +9,10 @@ function CodewarsStats() {
 
   if (profile.codewars_username) {
     return (
-      <div className="codewars-completed">
-        <p>{codewarsData.length} Codewars Challenges Completed</p>
+      <div className="codewars-stats">
+        <p className="codewars-stats-text">
+          {codewarsData.length} Codewars Challenges Completed
+        </p>
         <img
           src={
             "https://www.codewars.com/users/" +
