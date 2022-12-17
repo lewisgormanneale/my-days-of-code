@@ -1,6 +1,6 @@
 .footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   box-sizing: border-box;
   align-items: center;
   width: 100%;
@@ -10,21 +10,21 @@
 }
 
 /* unvisited link */
-.footer > a:link {
+.footer > p > a:link {
   color: red;
 }
 
 /* visited link */
-.footer > a:visited {
+.footer > p > a:visited {
   color: rgb(0, 165, 0);
 }
 
 /* mouse over link */
-.footer > a:hover {
+.footer > p > a:hover {
   color: rgb(159, 234, 255);
 }
 
 /* selected link */
-.footer > a:active {
+.footer > p > a:active {
   color: rgb(255, 255, 255);
 }

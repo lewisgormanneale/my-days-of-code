@@ -16,7 +16,7 @@ function Profile() {
 
   if (profile) {
     return (
-      <div className="profile">
+      <div className="profile-page">
         <Today
           profile={profile}
           updates={updates}

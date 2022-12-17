@@ -6,12 +6,14 @@ import "./Sidebar.css";
 
 function Sidebar() {
   const { user } = useAuth();
-  return (
-    <div className="sidebar">
-      <SidebarLogo />
-      {user && <NavList />}
-    </div>
-  );
+  if (user) {
+    return (
+      <div className="sidebar">
+        <SidebarLogo />
+        <NavList />
+      </div>
+    );
+  }
 }
 
 export default Sidebar;
