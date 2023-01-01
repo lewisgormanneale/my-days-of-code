@@ -7,7 +7,9 @@ export default function Statistics() {
   return (
     <div className="statistics-page">
       <div className="statistics-window">
+        <h1>Codewars Statistics</h1>
         <CodewarsStats />
+        <h1>More Statistics Coming Soon!</h1>
       </div>
       <Footer />
     </div>

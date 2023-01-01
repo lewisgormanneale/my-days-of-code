@@ -2,10 +2,14 @@ import React from "react";
 import "./PreviousList.css";
 import Day from "../Day/Day.js";
 
-function PreviousList({ user, days, updates, setUpdates, codewarsData }) {
+function PreviousList({ username, days, updates, setUpdates, codewarsData }) {
   return (
     <div className="previous-list">
-      <h3>Your Previous Days Of Code</h3>
+      <div className="profile-info">
+        <p></p>
+        <p>@{username}</p>
+      </div>
+      <h3>Days Of Code</h3>
       {days.map(function (currentDay, index, arr) {
         const prevDay = arr[index - 1];
         const timeDifference =

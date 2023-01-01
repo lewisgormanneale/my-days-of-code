@@ -12,7 +12,7 @@ import "./NavList.css";
 
 export default function NavList({ matches }) {
   const navigate = useNavigate();
-  const { signOut } = useAuth();
+  const { profile, signOut } = useAuth();
 
   async function handleSignOut() {
     await signOut();
@@ -22,7 +22,7 @@ export default function NavList({ matches }) {
   return (
     <nav className="navbar">
       <ul>
-        <NavLink to="profile">
+        <NavLink to={profile.username}>
           <li className="navbar-list-item">
             <MdOutlineCalendarToday className="navbar-icon" />
             <p className="navbar-text">My Days</p>

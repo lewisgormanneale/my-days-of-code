@@ -1,20 +1,28 @@
 import React from "react";
 import { useAuth } from "../../contexts/AuthContext.js";
 import { useCodewarsData } from "../../hooks/useCodewarsData.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./Profile.css";
 import Today from "../Today/Today";
 import PreviousList from "../PreviousList/PreviousList";
 import Footer from "../Footer/Footer.js";
 import { useDays } from "../../hooks/useDays.js";
+import { useProfileInfo } from "../../hooks/useProfileInfo.js";
 
 function Profile() {
-  const { user, profile, updates, setUpdates } = useAuth();
-  const [days] = useDays(user, updates);
-  const [codewarsData] = useCodewarsData();
   const navigate = useNavigate();
+  // Get username from URL, along with logged in user info
+  let { username } = useParams();
+  const { user, profile, updates, setUpdates } = useAuth();
 
-  if (profile) {
+  //get whatever info exists for the username in the URL
+  const [profileInfo] = useProfileInfo(username, updates);
+  const [days] = useDays(profileInfo.id, updates);
+
+  //fix codewars
+  const [codewarsData] = useCodewarsData();
+
+  if (profile?.username === username) {
     return (
       <div className="profile-page">
         <Today
@@ -24,7 +32,7 @@ function Profile() {
           codewarsData={codewarsData}
         />
         <PreviousList
-          user={user}
+          username={username}
           days={days}
           updates={updates}
           setUpdates={setUpdates}
@@ -34,7 +42,25 @@ function Profile() {
       </div>
     );
   } else {
-    navigate("/");
+    //do a get request for the days of the username that has been navigated to - if it exists
+
+    if (true) {
+      return (
+        <div className="profile-page">
+          <PreviousList
+            username={username}
+            days={days}
+            updates={updates}
+            setUpdates={setUpdates}
+            codewarsData={codewarsData}
+          />
+          <Footer />
+        </div>
+      );
+    } else {
+      //if it doesn't exist, navigate user back to homepage
+      navigate("/");
+    }
   }
 }
 

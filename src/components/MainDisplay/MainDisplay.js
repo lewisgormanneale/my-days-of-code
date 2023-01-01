@@ -14,7 +14,7 @@ export default function MainDisplay() {
     <main className="main-display">
       <Routes>
         <Route
-          path="/profile"
+          path="/:username"
           element={
             <PrivateRoute>
               <Profile />

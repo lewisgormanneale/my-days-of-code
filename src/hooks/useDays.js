@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../supabase";
 
-export const useDays = (user, updates) => {
+export const useDays = (userId, updates) => {
   const [days, setDays] = useState([]);
 
   useEffect(() => {
@@ -9,6 +9,7 @@ export const useDays = (user, updates) => {
       const { data, error } = await supabase
         .from("days")
         .select("id, day, date, post")
+        .eq("user_id", userId)
         .order("date", { ascending: false });
       if (error) {
         console.log(error);
@@ -17,7 +18,7 @@ export const useDays = (user, updates) => {
       }
     }
     getDays();
-  }, [user, updates]);
+  }, [userId, updates]);
 
   return [days, setDays];
 };
