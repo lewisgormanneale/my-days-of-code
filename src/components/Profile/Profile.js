@@ -6,7 +6,6 @@ import "./Profile.css";
 import Today from "../Today/Today";
 import PreviousList from "../PreviousList/PreviousList";
 import Footer from "../Footer/Footer.js";
-import { useDays } from "../../hooks/useDays.js";
 import { useProfileInfo } from "../../hooks/useProfileInfo.js";
 
 function Profile() {
@@ -17,7 +16,6 @@ function Profile() {
 
   //get whatever info exists for the username in the URL
   const [profileInfo] = useProfileInfo(username, updates);
-  const [days] = useDays(profileInfo.id, updates);
 
   //fix codewars
   const [codewarsData] = useCodewarsData();
@@ -32,13 +30,12 @@ function Profile() {
           codewarsData={codewarsData}
         />
         <PreviousList
-          username={username}
-          days={days}
+          profileInfo={profileInfo}
           updates={updates}
           setUpdates={setUpdates}
           codewarsData={codewarsData}
         />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   } else {
@@ -49,7 +46,6 @@ function Profile() {
         <div className="profile-page">
           <PreviousList
             username={username}
-            days={days}
             updates={updates}
             setUpdates={setUpdates}
             codewarsData={codewarsData}
