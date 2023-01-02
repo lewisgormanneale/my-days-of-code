@@ -6,16 +6,16 @@ import LoginWithGitHubButton from "../LoginWithGitHubButton/LoginWithGitHubButto
 import "./FrontPage.css";
 
 export function FrontPage() {
-  const { user } = useAuth();
+  const { user, profile } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
-      navigate("/profile");
+    if (user && profile) {
+      navigate(`${profile.username}`);
     } else {
       navigate("/");
     }
-  }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [profile]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="front-page">

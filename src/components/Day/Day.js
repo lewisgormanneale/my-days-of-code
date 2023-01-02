@@ -12,8 +12,8 @@ function Day({ currentDay, updates, setUpdates, codewarsData }) {
 
   function confirmDelete(e) {
     if (deleteButtonMessage === "Delete Day") {
-      setDeleteButtonMessage("Confirm Delete");
-    } else if (deleteButtonMessage === "Confirm Delete") {
+      setDeleteButtonMessage("Confirm");
+    } else if (deleteButtonMessage === "Confirm") {
       deleteDay(e);
     }
   }

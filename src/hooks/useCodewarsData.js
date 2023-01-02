@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "../contexts/AuthContext";
 
 export const useCodewarsData = (profileInfo) => {
   const [codewarsData, setCodewarsData] = useState({});

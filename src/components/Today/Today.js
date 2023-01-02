@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import ReactQuill from "react-quill";
 import { supabase } from "../../supabase";
 import { useAuth } from "../../contexts/AuthContext";
 import "./Today.css";
+import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { quillFormats } from "../../services/quillFormats";
 import CodewarsDay from "../CodewarsDay/CodewarsDay";
 
 function Today({ codewarsData }) {
@@ -80,6 +81,7 @@ function Today({ codewarsData }) {
           </div>
           <ReactQuill
             theme="snow"
+            formats={quillFormats}
             value={postText}
             onChange={setPostText}
             required
