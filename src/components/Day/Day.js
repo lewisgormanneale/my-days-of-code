@@ -5,7 +5,7 @@ import { toPng } from "html-to-image";
 import "./Day.css";
 import CodewarsDay from "../CodewarsDay/CodewarsDay.js";
 
-function Day({ currentDay, updates, setUpdates, codewarsData }) {
+function Day({ currentDay, updates, setUpdates, codewarsData, deleteDay }) {
   const currentDate = currentDay.date.slice(0, 10);
   const ref = useRef(null);
   const [deleteButtonMessage, setDeleteButtonMessage] = useState("Delete Day");
@@ -14,20 +14,13 @@ function Day({ currentDay, updates, setUpdates, codewarsData }) {
     if (deleteButtonMessage === "Delete Day") {
       setDeleteButtonMessage("Confirm");
     } else if (deleteButtonMessage === "Confirm") {
-      deleteDay(e);
+      handleClick(e);
     }
   }
 
-  async function deleteDay(e) {
+  async function handleClick(e) {
     e.preventDefault();
-    let { data, error } = await supabase
-      .from("days")
-      .delete()
-      .eq("id", currentDay.id);
-    if (error) {
-      console.log(error);
-    }
-    setUpdates([...updates, data]);
+    deleteDay(currentDay);
   }
 
   const onButtonClick = useCallback(() => {

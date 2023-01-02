@@ -42,6 +42,10 @@ function Profile() {
     }
   }
 
+  useEffect(() => {
+    getDays();
+  }, [profileInfo]);
+
   async function createDay(postDay, postDate, postText) {
     let { data, error } = await supabase
       .from("days")
@@ -59,11 +63,20 @@ function Profile() {
       return new Date(b.date) - new Date(a.date);
     });
     setDays(sortedDays);
+    setPage(page + 0.1);
   }
 
-  useEffect(() => {
-    getDays();
-  }, [profileInfo]);
+  async function deleteDay(currentDay) {
+    let { data, error } = await supabase
+      .from("days")
+      .delete()
+      .eq("id", currentDay.id);
+    if (error) {
+      console.log(error);
+    }
+    const sortedDays = days.filter((day) => day.id !== currentDay.id);
+    setDays(sortedDays);
+  }
 
   return (
     <div className="profile-page">
@@ -98,6 +111,7 @@ function Profile() {
                 updates={updates}
                 setUpdates={setUpdates}
                 codewarsData={codewarsData}
+                deleteDay={deleteDay}
               />
             </div>
           );
