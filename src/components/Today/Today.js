@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { supabase } from "../../supabase";
 import { useAuth } from "../../contexts/AuthContext";
 import "./Today.css";
 import ReactQuill from "react-quill";
@@ -7,25 +6,16 @@ import "react-quill/dist/quill.snow.css";
 import { quillFormats } from "../../services/quillFormats";
 import CodewarsDay from "../CodewarsDay/CodewarsDay";
 
-function Today({ codewarsData }) {
-  const { profile, updates, setUpdates } = useAuth();
+function Today({ codewarsData, createDay }) {
+  const { profile } = useAuth();
   const todaysDate = new Date().toISOString().substr(0, 10);
   const [postDay, setPostDay] = useState(1);
   const [postDate, setPostDate] = useState(todaysDate);
   const [postText, setPostText] = useState("");
 
-  async function createDay(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    let { data, error } = await supabase.from("days").insert({
-      day: postDay,
-      date: postDate,
-      post: postText,
-      user_id: profile.id,
-    });
-    if (error) {
-      console.log(error);
-    }
-    setUpdates([...updates, data]);
+    createDay(postDay, postDate, postText);
     setPostDay(1);
     setPostDate(todaysDate);
     setPostText("");
@@ -93,7 +83,7 @@ function Today({ codewarsData }) {
                 codewarsData={codewarsData}
               />
             </div>
-            <button className="submit-button" onClick={createDay}>
+            <button className="submit-button" onClick={handleSubmit}>
               Submit
             </button>
           </div>

@@ -42,6 +42,25 @@ function Profile() {
     }
   }
 
+  async function createDay(postDay, postDate, postText) {
+    let { data, error } = await supabase
+      .from("days")
+      .insert({
+        day: postDay,
+        date: postDate,
+        post: postText,
+        user_id: profile.id,
+      })
+      .select("*"); // New in v2 supabase API, you need to add a select to retrieve the data that has been inserted
+    if (error) {
+      console.log(error);
+    }
+    const sortedDays = [...days, data[0]].sort((a, b) => {
+      return new Date(b.date) - new Date(a.date);
+    });
+    setDays(sortedDays);
+  }
+
   useEffect(() => {
     getDays();
   }, [profileInfo]);
@@ -55,7 +74,7 @@ function Profile() {
         height={1000}
         loader={<h4>Loading...</h4>}
         endMessage={
-          <p style={{ textAlign: "center" }}>
+          <p style={{ textAlign: "center", paddingBottom: "15px" }}>
             <b>End Of Posts</b>
           </p>
         }
@@ -66,6 +85,7 @@ function Profile() {
             updates={updates}
             setUpdates={setUpdates}
             codewarsData={codewarsData}
+            createDay={createDay}
           />
         ) : null}
         {days.map(function (currentDay, index, arr) {
