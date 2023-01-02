@@ -7,20 +7,15 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Day from "../Day/Day.js";
 import "./Profile.css";
 import Today from "../Today/Today";
-import Footer from "../Footer/Footer.js";
+import createChain from "../../services/createChain.js";
 import { useProfileInfo } from "../../hooks/useProfileInfo.js";
 
 function Profile() {
   const navigate = useNavigate();
-  // Get username from URL, along with logged in user info
   let { username } = useParams();
-  const { user, profile, updates, setUpdates } = useAuth();
-
-  //get whatever info exists for the username in the URL
+  const { profile, updates, setUpdates } = useAuth();
   const [profileInfo] = useProfileInfo(username, updates);
-
-  //fix codewars
-  const [codewarsData] = useCodewarsData();
+  const [codewarsData] = useCodewarsData(profileInfo);
 
   const [days, setDays] = useState([]);
   const [page, setPage] = useState(1);
@@ -53,14 +48,14 @@ function Profile() {
   return (
     <div className="profile-page">
       <InfiniteScroll
-        dataLength={days.length} //This is important field to render the next data
+        dataLength={days.length}
         next={getDays}
         hasMore={hasMore}
         height={1000}
         loader={<h4>Loading...</h4>}
         endMessage={
           <p style={{ textAlign: "center" }}>
-            <b>Yay! You have seen it all</b>
+            <b>End Of Posts</b>
           </p>
         }
       >
@@ -73,22 +68,7 @@ function Profile() {
           />
         ) : null}
         {days.map(function (currentDay, index, arr) {
-          const prevDay = arr[index - 1];
-          const timeDifference =
-            new Date(prevDay?.date).getTime() -
-            new Date(currentDay?.date).getTime();
-          const dayDifference = timeDifference / (1000 * 3600 * 24);
-          const currentDate = new Date(currentDay?.date);
-          const todaysDate = new Date();
-          let chain = <div className="broken-chain"></div>;
-          if (dayDifference === 1) {
-            chain = <div className="chain"></div>;
-          } else if (
-            currentDate.setHours(0, 0, 0, 0) === todaysDate.setHours(0, 0, 0, 0)
-          ) {
-            chain = <div />;
-          }
-
+          let chain = createChain(currentDay, index, arr);
           return (
             <div key={currentDay.id} className="day-container">
               {chain}

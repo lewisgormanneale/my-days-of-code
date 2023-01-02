@@ -8,7 +8,9 @@ export const useProfileInfo = (username, updates) => {
     async function getProfileInfo() {
       const { data, error } = await supabase
         .from("profiles")
-        .select("id, full_name, username, codewars_username, avatar_url")
+        .select(
+          "id, full_name, username, private, codewars_username, avatar_url"
+        )
         .eq("username", username);
       if (error) {
         console.log(error);
